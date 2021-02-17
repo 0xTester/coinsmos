@@ -1,0 +1,42 @@
+{% extends "Blog/base.html" %}
+{% block content %}
+
+<div class="w3-content" style="max-width:1600px">
+  <!-- Posts patrocinados principales  -->
+
+  <!-- Grid -->
+  <div class="w3-row w3-padding w3-border">
+    <div class="w3-col l8 s12">
+
+      <!-- Entrada de blog -->
+      <div class="w3-row-padding">
+        <div class="w3-panel w3-card-4 style="width:800px;">
+          <h1><b>Contáctanos</b></h1>
+          <ul>
+            <li>Te gustaría publicar en <b>coinsmos.com</b>?</li>
+            <li>Tienes algun comentario o sugerencia?</li>
+          </ul>
+          <h2>Envíanos un correo a <span style="background-color: #FFFF00"><b>info@coinsmos.com</b></span></h2>
+            <!--<div class="w3-panel w3-card">
+              <h2>Comentarios...</h2>
+              {% if not post.comments.all %}
+              <div class="w3-panel">
+                Aún no hay comentarios <a href="/categorias/{{ post.categoria }}/{{ post.slug }}/comentar""><b>Sé el primero!</b></a>
+              </div>
+              {% else %}
+              <a href="/categorias/{{ post.categoria }}/{{ post.slug }}/comentar"><button type="button" class="w3-button w3-blue w3-margin-bottom w3-round-large">Comentar</button></a>
+              <br/><br/>
+                {% for comentario in post.comments.all %}
+                  <b>{{ comentario.name }} - {{ comentario.date_added }}</b>
+                  <br/>
+                  {{ comentario.body }}
+                  <br/>
+                  <hr/>
+                {% endfor %}
+              {% endif %}
+            </div> -->
+        </div>
+      </div>
+      </div>
+</div>
+{% endblock content %}

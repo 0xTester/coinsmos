@@ -1,0 +1,141 @@
+{% extends "Blog/base.html" %}
+{% block content %}
+
+<div class="w3-content" style="max-width:1600px">
+  <!-- Posts patrocinados principales  --
+  <div class="w3-content w3-display-container" style="max-width:1600px">
+    <img class="mySlides w3-animate-right" src="{{ post_destacado.banner }}" style="width:100%">
+    <img class="mySlides w3-animate-right" src="C:\Users\felix\Desktop\banner2.png" style="width:100%">
+    <img class="mySlides w3-animate-right" src="C:\Users\felix\Desktop\banner3.png" style="width:100%">
+    <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
+      <div class="w3-left w3-button w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+      <div class="w3-right w3-button w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+      <span class="w3-badge w3-button demo w3-border w3-transparent w3-hover-transparent" onclick="currentDiv(1)"></span>
+      <span class="w3-badge w3-button demo w3-border w3-transparent w3-hover-transparent" onclick="currentDiv(2)"></span>
+      <span class="w3-badge w3-button demo w3-border w3-transparent w3-hover-transparent" onclick="currentDiv(3)"></span>
+    </div>
+  </div>
+
+  <!-- Grid -->
+  {% if post_ctgs %}
+  <div class="w3-row w3-padding w3-border">
+
+    <!-- Entradas -->
+    <div><h3 style="font-size:36px">{{ ctgs }}</h3></div>
+    <div class="w3-col l8 s12">
+
+      <!-- Entrada de blog -->
+      <div class="w3-row-padding">
+        {% for post in post_ctgs %}
+          <div class="w3-third w3-container w3-hover-shadow w3-margin-bottom"><a href="/categorias/{{ post.categoria }}"><span class="w3-tag w3-hover-red">{{ post.categoria }}</span></a>
+            <a href="/categorias/{{ post.categoria }}/{{ post.slug }}" style="text-decoration:none"><img src= "{{ post.thumbnail.url }}" style="width:100%" class="w3-hover-opacity">
+              <div class="w3-container w3-white">
+                <p><b>{{ post.title }}</b></p>
+                <p>{{ post.content|slice:":150"|safe }}...</p>
+              </div>
+            </a>
+        </div>
+        {% endfor %}
+
+      </div>
+
+      {% if post_ctgs.has_other_pages %}
+        <div class="w3-bar w3-border w3-round w3-centered" style="width:100%">
+          {% if post_ctgs.has_previous %}
+            <a href="?page={{ post_ctgs.previous_page_number }}" class="w3-button">&#10094; <b>Anterior</b></a>
+          {% endif %}
+          {% if post_ctgs.has_next %}
+            <a href="?page={{ post_ctgs.next_page_number }}" class="w3-button w3-right"><b>Siguiente &#10095;</b></a>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+
+
+    <!-- Tabla dinamica-->
+    <div class="w3-col l4">
+      <!-- Tarjeta
+      <div class="w3-white w3-margin">
+        <div class="w3-container w3-black">
+          <h4>Mejores Retornos(24h)</h4>
+          <p>Los tokens con mejor desempeño</p>
+        </div>
+      </div>
+      <hr>
+      -->
+      <!-- Posts -->
+      <div class="w3-white w3-margin">
+        <div class="w3-container w3-padding w3-black">
+          <h4>Más Populares</h4>
+        </div>
+        {% for post in ultimas %}
+        <ul class="w3-ul w3-hoverable w3-white">
+          <li class="w3-padding-16">
+                <a href="/categorias/{{ post.categoria }}/{{ post.slug }}" style="text-decoration:none"><img src="{{ post.thumbnail.url }}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                <span class="w3-large">{{ post.title }}</span>
+                <br>
+                <span>{{ post.created_on }}</span>
+          </li>
+        </ul>
+        {% endfor %}
+      </div>
+      <hr>
+      <!-- Advertising -->
+      <div class="w3-white w3-margin">
+        <div class="w3-container w3-padding w3-black">
+          <h4>Anúnciate con nosotros</h4>
+        </div>
+        <div class="w3-container w3-white">
+          <div class="w3-container w3-display-container w3-light-grey w3-section" style="height:200px">
+            <span class="w3-display-middle">Anúnciate aquí!</span>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <!-- Post Patrocinados -->
+      <div class="w3-white w3-margin">
+        <div class="w3-container w3-padding w3-black">
+          <h4>Exchanges</h4>
+        </div>
+        <div class="w3-row-padding w3-white">
+          <div class="w3-col s6">
+            <p><a href="https://www.bitfinex.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none"><img src="https://pbs.twimg.com/profile_images/1243136786848768001/3NPReTdI_400x400.jpg" alt="Ex1" style="width:50px"><b>  BitFinex</b></p></a>
+            <p><a href="https://www.kraken.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none"><img src="https://pbs.twimg.com/profile_images/1306325743580848130/mk0qvsZ9_400x400.jpg" alt="Ex2" style="width:50px"><b>  Kraken</b></p></a>
+          </div>
+          <div class="w3-col s6">
+            <p><a href="https://www.binance.com/es" target="_blank" rel="noopener noreferrer" style="text-decoration:none"><img src="https://pbs.twimg.com/profile_images/1343776161348734976/JqXEUnRH_400x400.jpg" alt="Ex3" style="width:50px"><b>  BINANCE</b></p></a>
+            <p><a href="https://ftx.com/es" target="_blank" rel="noopener noreferrer" style="text-decoration:none"><img src="https://pbs.twimg.com/profile_images/1344222569637969921/I6A_483L_400x400.jpg" alt="Ex4" style="width:50px"><b>  FTX</b></p></a>
+         </div>
+        </div>
+      </div>
+      <hr>
+      <!-- Tags
+      <div class="w3-white w3-margin">
+        <div class="w3-container w3-padding w3-black">
+          <h4>Tags</h4>
+        </div>
+        <div class="w3-container w3-white">
+          <p>
+            <span class="w3-tag w3-black w3-margin-bottom">Bitcoin</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Finanzas</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Ahorro</span>
+            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Ethereum</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Wallets</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">ETH2.0</span>
+            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">DeFi</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">ERC-20</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Tecnología</span>
+            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Trading</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Algorand</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Información</span>
+            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Noticias</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Tendencias</span>
+          </p>
+        </div>
+      </div> -->
+      <hr>
+
+    <!-- END About/Intro Menu -->
+    </div>
+
+  <!-- END GRID -->
+  </div>
+
+<!-- END w3-content -->
+</div>
+{% else %}
+<h1>Lo sentimos, esta página no existe...</h1>
+<img src="https://coinsmos.s3.us-east-2.amazonaws.com/Error-not+found.jpg" alt="Not-Found" class="w3-image">
+{% endif %}
+  {% endblock %}

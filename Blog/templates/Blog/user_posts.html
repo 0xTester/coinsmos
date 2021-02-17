@@ -1,0 +1,167 @@
+{% extends "Blog/base.html" %}
+{% block content %}
+<div class="w3-content" style="max-width:1600px">
+
+  <!-- Posts patrocinados principales  -->
+
+  <!-- Grid -->
+  <div class="w3-row w3-padding w3-border">
+
+    <!-- Entradas -->
+    <div><h3 style="font-size:36px"><b>Posts por {{view.kwargs.username}}</b></h3></div>
+    <div class="w3-col l8 s12">
+      <!-- Entrada de blog -->
+      <div class="w3-row-padding">
+        {% for post in object_list %}
+          <div class="w3-third w3-container w3-hover-shadow w3-margin-bottom"><a href="/categorias/{{ post.categoria }}"><span class="w3-tag w3-hover-red">{{ post.categoria }}</span></a>
+            <a href="/categorias/{{ post.categoria }}/{{ post.slug }}" style="text-decoration:none"><img src= "{{ post.thumbnail.url }}" style="width:100%" class="w3-hover-opacity">
+              <div class="w3-container w3-white">
+                <p><b>{{ post.title }}</b></p>
+                <p>{{ post.content|slice:":155"|safe }}...</p>
+              </div>
+            </a>
+        </div>
+        {% endfor %}
+      </div>
+      {% if is_paginated %}
+        <div class="w3-bar w3-border w3-round w3-centered" style="width:100%">
+          {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}" class="w3-button">&#10094; <b>Anterior</b></a>
+          {% endif %}
+          {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" class="w3-button w3-right"><b>Siguiente &#10095;</b></a>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      <!--{% if is_paginated %}
+      <div class="w3-bar w3-border w3-round w3-centered" style="width:100%">
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}" class="w3-button">&#10094; <b>Anterior</b></a>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="w3-button w3-right"><b>Siguiente &#10095;</b></a>
+        {% endif %}
+      </div>
+      {% endif %}
+      <!-- Entrada de blog -->
+    <!-- Enpaginación -->
+    </div>
+
+
+    <!-- Tabla dinamica-->
+    <div class="w3-col l4">
+      <!-- Tarjeta --
+      <div class="w3-white w3-margin">
+        <div class="w3-container w3-black">
+          <h4>Mejores Retornos(24h)</h4>
+          <p>Los tokens con mejor desempeño</p>
+        </div>
+      </div>
+      <hr>
+
+      <!-- Posts -->
+      <div class="w3-white w3-margin">
+        <div class="w3-container w3-padding w3-black">
+          <h4>Más Populares</h4>
+        </div>
+        {% for post in ultimas %}
+        <ul class="w3-ul w3-hoverable w3-white">
+          <li class="w3-padding-16">
+                <a href="/categorias/{{ post.categoria }}/{{ post.slug }}" style="text-decoration:none"><img src="{{ post.thumbnail.url }}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                <span class="w3-large">{{ post.title }}</span>
+                <br>
+                <span>{{ post.created_on }}</span>
+          </li>
+        </ul>
+        {% endfor %}
+      </div>
+      <hr>
+      <!-- Advertising -->
+      <div class="w3-white w3-margin">
+        <div class="w3-container w3-padding w3-black">
+          <h4>Anúnciate con nosotros</h4>
+        </div>
+        <div class="w3-container w3-white">
+          <div class="w3-container w3-display-container w3-light-grey w3-section" style="height:200px">
+            <span class="w3-display-middle">Anúnciate aquí!</span>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <!-- Post Patrocinados -->
+      <div class="w3-white w3-margin">
+        <div class="w3-container w3-padding w3-black">
+          <h4>Exchanges</h4>
+        </div>
+        <div class="w3-row-padding w3-white">
+          <div class="w3-col s6">
+            <p><a href="https://www.bitfinex.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none"><img src="https://pbs.twimg.com/profile_images/1243136786848768001/3NPReTdI_400x400.jpg" alt="Ex1" style="width:50px"><b>  BitFinex</b></p></a>
+            <p><a href="https://www.kraken.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none"><img src="https://pbs.twimg.com/profile_images/1306325743580848130/mk0qvsZ9_400x400.jpg" alt="Ex2" style="width:50px"><b>  Kraken</b></p></a>
+          </div>
+          <div class="w3-col s6">
+            <p><a href="https://www.binance.com/es" target="_blank" rel="noopener noreferrer" style="text-decoration:none"><img src="https://pbs.twimg.com/profile_images/1343776161348734976/JqXEUnRH_400x400.jpg" alt="Ex3" style="width:50px"><b>  BINANCE</b></p></a>
+            <p><a href="https://ftx.com/es" target="_blank" rel="noopener noreferrer" style="text-decoration:none"><img src="https://pbs.twimg.com/profile_images/1344222569637969921/I6A_483L_400x400.jpg" alt="Ex4" style="width:50px"><b>  FTX</b></p></a>
+         </div>
+        </div>
+      </div>
+      <hr>
+      <!-- Tags
+      <div class="w3-white w3-margin">
+        <div class="w3-container w3-padding w3-black">
+          <h4>Tags</h4>
+        </div>
+        <div class="w3-container w3-white">
+          <p>
+            <span class="w3-tag w3-black w3-margin-bottom">Bitcoin</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Finanzas</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Ahorro</span>
+            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Ethereum</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Wallets</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">ETH2.0</span>
+            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">DeFi</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">ERC-20</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Tecnología</span>
+            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Trading</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Algorand</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Información</span>
+            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Noticias</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Tendencias</span>
+          </p>
+        </div>
+      </div> -->
+      <hr>
+
+
+      <!-- Subscribe -->
+      <div class="w3-white w3-margin">
+        <div class="w3-container w3-padding w3-black">
+          <h4>Donaciones</h4>
+        </div>
+        <div class="w3-container w3-white">
+          <p>Tus donaciones nos ayudan a seguir dando lo mejor, para traerte la mejor información y las mejores herramientas. <b>¡Todas las donaciones reciben un NFT de Coinsmos!</b> Aceptamos donaciones en: <b>BTC | ETH | ALGO | LTC | DOT</b></p>
+          <p><button type="button" onclick="document.getElementById('donar').style.display='block'" class="w3-button w3-block w3-red">DONAR</button></p>
+        </div>
+      </div>
+
+    <!-- END About/Intro Menu -->
+    </div>
+
+  <!-- END GRID -->
+  </div>
+
+<!-- END w3-content -->
+</div>
+
+<!-- Donation Modal -->
+<div id="donar" class="w3-modal w3-animate-opacity">
+  <div class="w3-modal-content" style="padding:32px">
+    <div class="w3-container w3-white">
+      <i onclick="document.getElementById('donar').style.display='none'" class="fa fa-remove w3-transparent w3-button w3-xlarge w3-right"></i>
+      <h2 class="w3-wide">¡Gracias por ayudarnos a seguir!</h2>
+      <p>Al realizar tu donación mandanos un correo con la transacción a: <b>info@coinsmos.com</b> para recibir un <b>NFT exclusivo de Coinsmos!</b> este NFT lo podrás intercambiar en diversos mercados.</p>
+      <ul>
+        <p><b>BTC:</b> bc1q4jnt777kuw233cja04t4vnt2yuz9sv0q4z0yyw4</p>
+        <p><b>ETH:</b> 0x0b588F44fdB6CB1496466F9a8550c9E9Ac98B7A5</p>
+        <p><b>LTC:</b> ltc1qqwvzaan6uvy8teskvycrvg8knlc2yd936yw242</p>
+        <p><b>ALGO:</b> LALHOOMSHPAE7EDN5YAQP56M3CUXWB4GGQ64CG4YO4QNCUKOWKR7JCXMEQ</p>
+        <p><b>DOT:</b> 15wJqZxDuqmZN2VRjqryuzUxxP2mHThu777LET12Fy2qsEc3</p>
+      </ul>
+      <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('donar').style.display='none'">Cerrar</button>
+    </div>
+  </div>
+
+
+</div>
+{% endblock content %}
