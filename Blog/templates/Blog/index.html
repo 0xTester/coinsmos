@@ -30,7 +30,7 @@
             <a href="categorias/{{ post.categoria }}/{{ post.slug }}" style="text-decoration:none"><img src= "{{ post.thumbnail.url }}" style="width:100%" class="w3-hover-opacity">
               <div class="w3-container w3-white">
                 <p><b>{{ post.title }}</b></p>
-                <p>{{ post.content|slice:":250"|safe }}...</p>
+                <p>{{ post.content|slice:":180"|safe }}...</p>
               </div>
             </a>
         </div>
