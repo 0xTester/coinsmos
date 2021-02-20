@@ -62,6 +62,7 @@ class agregar_comentario(CreateView):
 
     def form_valid(self, form):
         form.instance.post_id = self.slug
+        return super().form_valid(form)
 
 def CategoryView(request, ctgs):
     ctgs = ctgs.lower()
