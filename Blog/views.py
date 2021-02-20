@@ -61,7 +61,7 @@ class agregar_comentario(CreateView):
     success_url = reverse_lazy('post_detail')
 
     def form_valid(self, form):
-        form.instance.post_id = self.request.slug
+        form.instance.post_id = self.slug
 
 def CategoryView(request, ctgs):
     ctgs = ctgs.lower()
