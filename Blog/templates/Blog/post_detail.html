@@ -16,16 +16,16 @@
           <div class="w3-container w3-display-container w3-light-blue w3-section" style="height:100px">
             <span class="w3-display-middle"><b>Tu anuncio aquí!</b></span>
           </div>
-            <!--<div class="w3-panel w3-card">
+            <div class="w3-panel w3-card">
               <h2>Comentarios...</h2>
-              {% if not post.comments.all %}
+              {% if not object.comments.all %}
               <div class="w3-panel">
-                Aún no hay comentarios <a href="/categorias/{{ post.categoria }}/{{ post.slug }}/comentar""><b>Sé el primero!</b></a>
+                Aún no hay comentarios <a href="/categorias/{{ object.categoria }}/{{ object.slug }}/comentar""><b>Sé el primero!</b></a>
               </div>
               {% else %}
               <a href="/categorias/{{ post.categoria }}/{{ post.slug }}/comentar"><button type="button" class="w3-button w3-blue w3-margin-bottom w3-round-large">Comentar</button></a>
               <br/><br/>
-                {% for comentario in post.comments.all %}
+                {% for comentario in object.comments.all %}
                   <b>{{ comentario.name }} - {{ comentario.date_added }}</b>
                   <br/>
                   {{ comentario.body }}
@@ -33,7 +33,7 @@
                   <hr/>
                 {% endfor %}
               {% endif %}
-            </div> -->
+            </div>
         </div>
       </div>
       </div>
