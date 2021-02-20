@@ -4,6 +4,8 @@ from django.views.generic import ListView, DetailView, CreateView
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db.models import Q
 from django.contrib.auth.models import User
+from .forms import CommentForm
+from django.urls import reverse_lazy, path
 
 # Create your views here.
 
@@ -54,8 +56,9 @@ class PostDetail(DetailView):
         return context_data
 class agregar_comentario(CreateView):
     model = Comentario
+    form_class = CommentForm
     template_name = 'Blog/comentar.html'
-    fields = '__all__'
+    success_url = reverse_lazy('post_detail')
 
 def CategoryView(request, ctgs):
     ctgs = ctgs.lower()
