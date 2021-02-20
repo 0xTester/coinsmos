@@ -10,7 +10,7 @@
       <div class="w3-row-padding">
         <div class="w3-panel w3-card-4 style="width:800px;">
           <h1><b>{% block title %} {{ object.title }} {% endblock title %}</b></h1>
-          <a class="w3-opacity text-muted" href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
+          <a class="w3-opacity text-muted" style="text-decoration:none" href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
           <p class="card-text">{{ object.created_on }}</p>
           <p class="card-text">{{ object.content | safe }}</p>
           <div class="w3-container w3-display-container w3-light-blue w3-section" style="height:100px">
@@ -52,13 +52,13 @@
       <!-- Posts -->
       <div class="w3-white w3-margin">
         <div class="w3-container w3-padding w3-black">
-          <h4>Ultimos</h4>
+          <h4>Últimos</h4>
         </div>
         {% for post in ultimas %}
         <ul class="w3-ul w3-hoverable w3-white">
           <li class="w3-padding-16">
                 <a href="/categorias/{{ post.categoria }}/{{ post.slug }}" style="text-decoration:none"><img src="{{ post.thumbnail.url }}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                <span class="w3-large">{{ post.title }}</span>
+                <span class="w3-large"><b>{{ post.title }}</b></span>
                 <br>
                 <span>{{ post.created_on }}</span>
           </li>
