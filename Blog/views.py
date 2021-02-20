@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post, Comentario
-from django.views.generic import ListView, DetailView, Createview
+from django.views.generic import ListView, DetailView, CreateView
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db.models import Q
 from django.contrib.auth.models import User
