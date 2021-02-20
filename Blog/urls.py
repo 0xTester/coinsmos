@@ -9,6 +9,6 @@ urlpatterns = [
     path('contacto', contacto, name='pagina_contacto'),
     path('busqueda.html', busqueda, name = 'busqueda'),
     path('user/<str:username>/', AuthorListView.as_view(), name='user-posts'),
-    path('categorias/<str:ctgs>/<slug:slug>/comentar/', agregar_comentario.as_view(), name='add_comment'),
+    path('categorias/<str:ctgs>/<slug:slug>/<int:pk>/comentar/', agregar_comentario.as_view(), name='add_comment'),
 
 ]
