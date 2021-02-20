@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Post
+from .models import Post, Comentario
 from django.views.generic import ListView, DetailView
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db.models import Q
@@ -52,6 +52,10 @@ class PostDetail(DetailView):
         ultimas = Post.objects.filter(status=1).order_by('-created_on')[0:4]
         context_data['ultimas'] = ultimas
         return context_data
+class agregar_comentario(CreateView):
+    model = Comentario
+    template_name = 'Blog/comentar.html'
+    fields = '__all__'
 
 def CategoryView(request, ctgs):
     ctgs = ctgs.lower()
