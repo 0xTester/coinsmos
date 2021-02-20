@@ -61,7 +61,7 @@ class agregar_comentario(CreateView):
 
 
     def get_success_url(self):
-        return reverse('post_detail', kwargs={'pk': self.kwargs['pk']})
+        return reverse('post_detail', kwargs={'ctgs': self.kwargs['ctgs'], 'slug': self.kwargs['slug'],'pk': self.kwargs['pk']})
     def form_valid(self, form):
         form.instance.post_id = self.kwargs['pk']
         return super().form_valid(form)
