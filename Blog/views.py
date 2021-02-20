@@ -60,6 +60,9 @@ class agregar_comentario(CreateView):
     template_name = 'Blog/comentar.html'
     success_url = reverse_lazy('post_detail')
 
+    def form_valid(self, form):
+        form.instance.post_id = self.request.slug
+
 def CategoryView(request, ctgs):
     ctgs = ctgs.lower()
     post_ctgs = Post.objects.filter(categoria = ctgs)
