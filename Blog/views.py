@@ -5,7 +5,7 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db.models import Q
 from django.contrib.auth.models import User
 from .forms import CommentForm
-from django.urls import reverse_lazy, path
+from django.urls import reverse
 
 # Create your views here.
 
@@ -58,7 +58,7 @@ class agregar_comentario(CreateView):
     model = Comentario
     form_class = CommentForm
     template_name = 'Blog/comentar.html'
-    
+
 
     def get_success_url(self):
         return reverse('post_detail', kwargs={'pk': self.kwargs['pk']})
