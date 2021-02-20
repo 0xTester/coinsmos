@@ -14,7 +14,7 @@
       <div class="w3-row-padding">
         {% for post in object_list %}
           <div class="w3-third w3-container w3-hover-shadow w3-margin-bottom"><a href="/categorias/{{ post.categoria }}"><span class="w3-tag w3-hover-red">{{ post.categoria }}</span></a>
-            <a href="/categorias/{{ post.categoria }}/{{ post.slug }}" style="text-decoration:none"><img src= "{{ post.thumbnail.url }}" style="width:100%" class="w3-hover-opacity">
+            <a href="/categorias/{{ post.categoria }}/{{ post.slug }}/{{post.pk}}" style="text-decoration:none"><img src= "{{ post.thumbnail.url }}" style="width:100%" class="w3-hover-opacity">
               <div class="w3-container w3-white">
                 <p><b>{{ post.title }}</b></p>
                 <p>{{ post.content|slice:":155"|safe }}...</p>
@@ -68,7 +68,7 @@
         {% for post in ultimas %}
         <ul class="w3-ul w3-hoverable w3-white">
           <li class="w3-padding-16">
-                <a href="/categorias/{{ post.categoria }}/{{ post.slug }}" style="text-decoration:none"><img src="{{ post.thumbnail.url }}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                <a href="/categorias/{{ post.categoria }}/{{ post.slug }}/{post.pk}" style="text-decoration:none"><img src="{{ post.thumbnail.url }}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
                 <span class="w3-large">{{ post.title }}</span>
                 <br>
                 <span>{{ post.created_on }}</span>

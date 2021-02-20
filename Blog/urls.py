@@ -4,7 +4,7 @@ from .views import PostListDest, PostDetail, CategoryView, contacto, busqueda,Au
 
 urlpatterns = [
     path('', PostListDest.as_view(), name='blog-home'),
-    path('categorias/<str:ctgs>/<slug:slug>/', PostDetail.as_view(), name='post_detail'),
+    path('categorias/<str:ctgs>/<slug:slug>/<int:pk>', PostDetail.as_view(), name='post_detail'),
     path('categorias/<str:ctgs>/', CategoryView, name = 'categoria'),
     path('contacto', contacto, name='pagina_contacto'),
     path('busqueda.html', busqueda, name = 'busqueda'),
