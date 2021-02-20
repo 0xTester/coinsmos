@@ -20,10 +20,10 @@
               <h2>Comentarios...</h2>
               {% if not object.comments.all %}
               <div class="w3-panel">
-                Aún no hay comentarios <a href="/categorias/{{ object.categoria }}/{{ object.slug }}/comentar""><b>Sé el primero!</b></a>
+                Aún no hay comentarios <a href="/categorias/{{ object.categoria }}/{{ object.slug }}/comentar/""><b>Sé el primero!</b></a>
               </div>
               {% else %}
-              <a href="/categorias/{{ post.categoria }}/{{ post.slug }}/comentar"><button type="button" class="w3-button w3-blue w3-margin-bottom w3-round-large">Comentar</button></a>
+              <a href="/categorias/{{ post.categoria }}/{{ post.slug }}/comentar/"><button type="button" class="w3-button w3-blue w3-margin-bottom w3-round-large">Comentar</button></a>
               <br/><br/>
                 {% for comentario in object.comments.all %}
                   <b>{{ comentario.name }} - {{ comentario.date_added }}</b>
