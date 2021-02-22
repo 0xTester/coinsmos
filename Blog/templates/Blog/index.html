@@ -28,7 +28,7 @@
         {% for post in ultimas_publicaciones %}
           <div class="w3-third w3-container w3-hover-shadow w3-margin-bottom"><a href="/categorias/{{ post.categoria }}"><span class="w3-tag w3-hover-red">{{ post.categoria|title }}</span></a>
             <a href="categorias/{{ post.categoria }}/{{ post.slug }}/{{ post.pk }}" style="text-decoration:none"><img src= "{{ post.thumbnail.url }}" style="width:100%" class="w3-hover-opacity">
-              <div class="w3-container w3-white">
+              <div class="w3-container w3-cell w3-white">
                 <p><b>{{ post.title }}</b></p>
                 <p>{{ post.content|truncatewords_html:30|safe }}</p>
               </div>
