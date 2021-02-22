@@ -45,6 +45,14 @@ and is wrapped around the whole page content, except for the footer in this exam
       <a href="{% url 'blog-home' %}categorias/Noticias" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black" style="font-size:20px"><b>Noticias</b></a>
       <a href="{% url 'blog-home' %}categorias/Blockchain" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black" style="font-size:20px"><b>Blockchain</b></a>
       <a href="{% url 'blog-home' %}categorias/Educacion" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black" style="font-size:20px"><b>Educacion</b></a>
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="dropdown()">&#9776;</a>
+    </div>
+    <div id="dropdown" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+      <a href="{% url 'blog-home' %}categorias/Defi" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black" style="font-size:20px"><b>DeFi</b></a>
+      <a href="{% url 'blog-home' %}categorias/Trading" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black" style="font-size:20px"><b>Trading</b></a>
+      <a href="{% url 'blog-home' %}categorias/Noticias" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black" style="font-size:20px"><b>Noticias</b></a>
+      <a href="{% url 'blog-home' %}categorias/Blockchain" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black" style="font-size:20px"><b>Blockchain</b></a>
+      <a href="{% url 'blog-home' %}categorias/Educacion" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black" style="font-size:20px"><b>Educacion</b></a>
     </div>
   </header>
         {% block content %}
@@ -110,3 +118,13 @@ and is wrapped around the whole page content, except for the footer in this exam
         </div>
           <p class="w3-right">Coinsmos© 2021. Todos los derechos reservados</p>
         </footer>
+      <script>
+      function dropdown() {
+        var x = document.getElementById("dropdown");
+        if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+        } else {
+          x.className = x.className.replace(" w3-show", "");
+        }
+      }
+      </script>
