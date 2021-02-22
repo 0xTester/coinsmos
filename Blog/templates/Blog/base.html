@@ -38,8 +38,8 @@ and is wrapped around the whole page content, except for the footer in this exam
     <h1 style="text-shadow:2px 2px 0 #C0C0C0" class="w3-xxxlarge"><b><a href="{% url 'blog-home' %}" style="text-decoration:none">COINSMOS</a></b></h1>
     <h6 style="float:left; font-size:20px">Lo mejor de la  <span class="w3-tag">BLOCKCHAIN</span> EN ESPAÑOL</h6>
     <div class="w3-white w3-round" style="float:right;">
-        <a href="#" onclick="document.getElementById('buscar').style.display='block'" class="w3-bar-item w3-button w3-right w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black"><i class="fa fa-search"></i></a>
-      <a href="{% url 'blog-home' %}" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black" style="font-size:20px"><i class="fa fa-home"></i></a>
+      <a href="#" onclick="document.getElementById('buscar').style.display='block'" class="w3-bar-item w3-button w3-right w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black w3-hide-small"><i class="fa fa-search"></i></a>
+      <a href="{% url 'blog-home' %}" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black w3-hide-small" style="font-size:20px"><i class="fa fa-home"></i></a>
       <a href="{% url 'blog-home' %}categorias/Defi" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black w3-hide-small" style="font-size:20px"><b>DeFi</b></a>
       <a href="{% url 'blog-home' %}categorias/Trading" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black w3-hide-small" style="font-size:20px"><b>Trading</b></a>
       <a href="{% url 'blog-home' %}categorias/Noticias" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black w3-hide-small" style="font-size:20px"><b>Noticias</b></a>
@@ -48,6 +48,8 @@ and is wrapped around the whole page content, except for the footer in this exam
       <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="dropdown()">&#9776;</a>
     </div>
     <div id="dropdown" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+      <a href="#" onclick="document.getElementById('buscar').style.display='block'" class="w3-bar-item w3-button w3-right w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black"><i class="fa fa-search"></i></a>
+      <a href="{% url 'blog-home' %}" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black" style="font-size:20px"><i class="fa fa-home"></i></a>
       <a href="{% url 'blog-home' %}categorias/Defi" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black" style="font-size:20px"><b>DeFi</b></a>
       <a href="{% url 'blog-home' %}categorias/Trading" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black" style="font-size:20px"><b>Trading</b></a>
       <a href="{% url 'blog-home' %}categorias/Noticias" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black" style="font-size:20px"><b>Noticias</b></a>
