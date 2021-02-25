@@ -26,7 +26,7 @@
       <!-- Entrada de blog -->
       <div class="w3-row-padding">
         {% for post in ultimas_publicaciones %}
-          <div class="w3-container w3-hover-shadow w3-margin-bottom w3-cell"><a href="/categorias/{{ post.categoria }}"><span class="w3-tag w3-hover-red">{{ post.categoria|title }}</span></a>
+          <div class="w3-third w3-container w3-hover-shadow w3-margin-bottom w3-cell"><a href="/categorias/{{ post.categoria }}"><span class="w3-tag w3-hover-red">{{ post.categoria|title }}</span></a>
             <a href="categorias/{{ post.categoria }}/{{ post.slug }}/{{ post.pk }}" style="text-decoration:none"><img src= "{{ post.thumbnail.url }}" style="width:100%" class="w3-hover-opacity">
               <div class="w3-container w3-white w3-cell">
                 <p><b>{{ post.title }}</b></p>
