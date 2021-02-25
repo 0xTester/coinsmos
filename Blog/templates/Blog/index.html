@@ -26,7 +26,7 @@
       <!-- Entrada de blog -->
       <div class="w3-row-padding">
         {% for post in ultimas_publicaciones %}
-          {% if forloop.counter % 2 == 0 %}
+          {% if forloop.counter >= 3 %}
           <div class="w3-container w3-margin-top">
           <div class="w3-container w3-hover-shadow w3-margin-bottom w3-cell"><a href="/categorias/{{ post.categoria }}"><span class="w3-tag w3-hover-red">{{ post.categoria|title }}</span></a>
             <a href="categorias/{{ post.categoria }}/{{ post.slug }}/{{ post.pk }}" style="text-decoration:none"><img src= "{{ post.thumbnail.url }}" style="width:100%" class="w3-hover-opacity">
