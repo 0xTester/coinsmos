@@ -26,7 +26,9 @@
       <!-- Entrada de blog -->
       <div class="w3-row-padding">
         {% for post in ultimas_publicaciones %}
-          <div class="w3-third w3-container w3-hover-shadow w3-margin-bottom w3-cell"><a href="/categorias/{{ post.categoria }}"><span class="w3-tag w3-hover-red">{{ post.categoria|title }}</span></a>
+          {% if forloop.counter % 2 == 0 %}
+          <div class="w3-container w3-margin-top">
+          <div class="w3-container w3-hover-shadow w3-margin-bottom w3-cell"><a href="/categorias/{{ post.categoria }}"><span class="w3-tag w3-hover-red">{{ post.categoria|title }}</span></a>
             <a href="categorias/{{ post.categoria }}/{{ post.slug }}/{{ post.pk }}" style="text-decoration:none"><img src= "{{ post.thumbnail.url }}" style="width:100%" class="w3-hover-opacity">
               <div class="w3-container w3-white w3-cell">
                 <p><b>{{ post.title }}</b></p>
@@ -36,6 +38,19 @@
         </div>
         {% endfor %}
       </div>
+      </div>
+        {% else %}
+        <div class="w3-container w3-hover-shadow w3-margin-bottom w3-cell"><a href="/categorias/{{ post.categoria }}"><span class="w3-tag w3-hover-red">{{ post.categoria|title }}</span></a>
+          <a href="categorias/{{ post.categoria }}/{{ post.slug }}/{{ post.pk }}" style="text-decoration:none"><img src= "{{ post.thumbnail.url }}" style="width:100%" class="w3-hover-opacity">
+            <div class="w3-container w3-white w3-cell">
+              <p><b>{{ post.title }}</b></p>
+              <p>{{ post.content|truncatewords_html:30|safe }}</p>
+            </div>
+          </a>
+      </div>
+      {% endfor %}
+    </div>
+      {% endif %}
       {% if ultimas_publicaciones.has_other_pages %}
         <div class="w3-bar w3-border w3-round w3-centered" style="width:100%">
           {% if ultimas_publicaciones.has_previous %}
