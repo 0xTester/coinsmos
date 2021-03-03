@@ -24,35 +24,28 @@
     <div><h3 style="font-size:36px"><b>Últimas publicaciones</b></h3></div>
     <div class="w3-col l8 s12">
       <!-- Entrada de blog -->
-      <div class="w3-container">
-        <div class="w3-responsive">
-          <table class="w3-table">
-            <tr>
-            {% for post in ultimas_publicaciones %}
-              {% if forloop.counter|divisibleby:"4" %}
-              <tr>
-              <td><div class="w3-container w3-hover-shadow w3-margin-bottom w3-cell"><a href="/categorias/{{ post.categoria }}"><span class="w3-tag w3-hover-red">{{ post.categoria|title }}</span></a>
-                <a href="categorias/{{ post.categoria }}/{{ post.slug }}/{{ post.pk }}" style="text-decoration:none"><img src= "{{ post.thumbnail.url }}" style="width:100%" class="w3-hover-opacity">
-                  <div class="w3-container w3-white">
-                    <p><b>{{ post.title }}</b></p>
-                    <p>{{ post.content|truncatewords_html:30|safe }}</p>
-                  </div>
-                </a>
-            </div></td>
-              {% else %}
-              <td><div class="w3-container w3-hover-shadow w3-margin-bottom w3-cell"><a href="/categorias/{{ post.categoria }}"><span class="w3-tag w3-hover-red">{{ post.categoria|title }}</span></a>
-                <a href="categorias/{{ post.categoria }}/{{ post.slug }}/{{ post.pk }}" style="text-decoration:none"><img src= "{{ post.thumbnail.url }}" style="width:100%" class="w3-hover-opacity">
-                  <div class="w3-container w3-white">
-                    <p><b>{{ post.title }}</b></p>
-                    <p>{{ post.content|truncatewords_html:30|safe }}</p>
-                  </div>
-                </a>
-            </div></td>
-                {% endif %}
-                </tr>
-            {% endfor %}
-          </table>
+      <div class="w3-cell-row w3-padding">
+        {% for post in ultimas_publicaciones %}
+          {% if forloop.counter|divisibleby:"3" %}
+          <div><div class="w3-container w3-hover-shadow w3-margin-bottom w3-cell"><a href="/categorias/{{ post.categoria }}"><span class="w3-tag w3-hover-red">{{ post.categoria|title }}</span></a>
+            <a href="categorias/{{ post.categoria }}/{{ post.slug }}/{{ post.pk }}" style="text-decoration:none"><img src= "{{ post.thumbnail.url }}" style="width:100%" class="w3-hover-opacity">
+              <div class="w3-container w3-white">
+                <p><b>{{ post.title }}</b></p>
+                <p>{{ post.content|truncatewords_html:30|safe }}</p>
+              </div>
+            </a>
+        </div></div>
+          {% else %}
+          <div class="w3-container w3-hover-shadow w3-margin-bottom w3-cell"><a href="/categorias/{{ post.categoria }}"><span class="w3-tag w3-hover-red">{{ post.categoria|title }}</span></a>
+            <a href="categorias/{{ post.categoria }}/{{ post.slug }}/{{ post.pk }}" style="text-decoration:none"><img src= "{{ post.thumbnail.url }}" style="width:100%" class="w3-hover-opacity">
+              <div class="w3-container w3-white">
+                <p><b>{{ post.title }}</b></p>
+                <p>{{ post.content|truncatewords_html:30|safe }}</p>
+              </div>
+            </a>
         </div>
+        {% endif %}
+        {% endfor %}
       </div>
       {% if ultimas_publicaciones.has_other_pages %}
         <div class="w3-bar w3-border w3-round w3-centered" style="width:100%">
