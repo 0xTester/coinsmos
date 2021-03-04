@@ -22,22 +22,62 @@
 
     <!-- Entradas -->
     <div><h3 style="font-size:36px"><b>Últimas publicaciones</b></h3></div>
-
+    <div class="w3-col l8 s12">
       <!-- Entrada de blog -->
       <div class="w3-container">
         <div class="w3-responsive">
           <table class="w3-table">
-            <tr>
-            {% for post in ultimas_publicaciones %}
-              {% if forloop.counter|divisibleby:"4" %}
-              <tr>
-              <td><p>Hola {{ forloop.counter }}</p></td>
-              {% else %}
-              <td>Hola {{ forloop.counter }}</td>
-                {% endif %}
-                </tr>
-            {% endfor %}
-          </table>
+            			<tr>
+              				<td><div class="w3-container w3-hover-shadow w3-margin-bottom"><a href="#"><span class="w3-tag w3-hover-red">Tag</span></a>
+            <a href="#" style="text-decoration:none"><img src= "https://cryptologos.cc/logos/ethereum-eth-logo.png" style="width:100%" class="w3-hover-opacity">
+              <div class="w3-container w3-white">
+                <p><b>Titulo</b></p>
+                <p>Contenido</p>
+              </div>
+            </a>
+        </div></td>
+              				<td><div class="w3-container w3-hover-shadow w3-margin-bottom w3-cell"><a href="#"><span class="w3-tag w3-hover-red">Tag</span></a>
+            <a href="#" style="text-decoration:none"><img src= "https://cryptologos.cc/logos/ethereum-eth-logo.png" style="width:100%" class="w3-hover-opacity">
+              <div class="w3-container w3-white">
+                <p><b>Titulo</b></p>
+                <p>Contenido</p>
+              </div>
+            </a>
+        </div></td>
+              				<td><div class="w3-container w3-hover-shadow w3-margin-bottom w3-cell"><a href="#"><span class="w3-tag w3-hover-red">Tag</span></a>
+            <a href="#" style="text-decoration:none"><img src= "https://cryptologos.cc/logos/ethereum-eth-logo.png" style="width:100%" class="w3-hover-opacity">
+              <div class="w3-container w3-white">
+                <p><b>Titulo</b></p>
+                <p>Contenido</p>
+              </div>
+            </a>
+        </div></td>
+            			</tr>
+            				<td><div class="w3-container w3-hover-shadow w3-margin-bottom"><a href="#"><span class="w3-tag w3-hover-red">Tag</span></a>
+            <a href="#" style="text-decoration:none"><img src= "https://cryptologos.cc/logos/ethereum-eth-logo.png" style="width:100%" class="w3-hover-opacity">
+              <div class="w3-container w3-white">
+                <p><b>Titulo</b></p>
+                <p>Contenido</p>
+              </div>
+            </a>
+        </div></td>
+                			<td><div class="w3-container w3-hover-shadow w3-margin-bottom"><a href="#"><span class="w3-tag w3-hover-red">Tag</span></a>
+            <a href="#" style="text-decoration:none"><img src= "https://cryptologos.cc/logos/ethereum-eth-logo.png" style="width:100%" class="w3-hover-opacity">
+              <div class="w3-container w3-white">
+                <p><b>Titulo</b></p>
+                <p>Contenido</p>
+              </div>
+            </a>
+        </div></td>
+                			<td><div class="w3-container w3-hover-shadow w3-margin-bottom w3-cell"><a href="#"><span class="w3-tag w3-hover-red">Tag</span></a>
+            <a href="#" style="text-decoration:none"><img src= "https://cryptologos.cc/logos/ethereum-eth-logo.png" style="width:100%" class="w3-hover-opacity">
+              <div class="w3-container w3-white">
+                <p><b>Titulo</b></p>
+                <p>Contenido</p>
+              </div>
+            </a>
+        </div></td>
+          			</table>
         </div>
       </div>
       {% if ultimas_publicaciones.has_other_pages %}
@@ -53,6 +93,8 @@
 
       <!-- Entrada de blog -->
     <!-- Enpaginación -->
+    </div>
+
 
     <!-- Tabla dinamica-->
     <div class="w3-col l4">
