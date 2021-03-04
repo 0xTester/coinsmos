@@ -2,16 +2,21 @@ from time import sleep
 from celery import shared_task
 from celery import Celery
 from .models import Crypto
-import requests
-import certifi
+import urllib3
+import json
 import re
 
 @shared_task
 def crawl_currency():
     url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false&price_change_percentage='24h'"
 
-    response = requests.get(url,verify=certifi.where())
-    transaction_content = response.json()
+    #response = requests.get(url,verify=certifi.where())
+    #transaction_content = response.json()
+
+    http = urllib3.PoolManager()
+    response = http.request('GET', url)
+    #response = requests.get(url,verify=certifi.where())
+    transaction_content=json.loads(response.data.decode('utf-8'))
 
     for crypto_content in transaction_content:
         Crypto.objects.create(
@@ -29,8 +34,11 @@ def crawl_currency():
 @shared_task
 def update_currency():
     url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false&price_change_percentage='24h'"
-    response = requests.get(url,verify=certifi.where())
-    transaction_content = response.json()
+    #response = requests.get(url,verify=certifi.where())
+    #transaction_content = response.json()
+    http = urllib3.PoolManager()
+    response = http.request('GET', url)
+    transaction_content=json.loads(response.data.decode('utf-8'))
     i = 0
     pattern = re.compile(r'.*(?=\.)')
     pattern2 = re.compile(r'(.*)\.\d\d')
