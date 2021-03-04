@@ -144,7 +144,7 @@ USE_TZ = True
 
 # Celery
 CELERY_BROKER_URL=os.environ['REDIS_URL'],
-CELERY_RESULT_BACKEND=os.environ['REDIS_URL']
+CELERY_RESULT_BACKEND='django-db'
 
 #---------------------------------------------
 CKEDITOR_UPLOAD_PATH = "uploads/"
