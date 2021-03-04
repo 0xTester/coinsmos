@@ -1,3 +1,3 @@
 release: python manage.py migrate
 web: gunicorn PaginaCoinsmos.wsgi
-worker: celery worker --app=tasks.app
+celery: celery worker -A PaginaCoinsmos -l info -c 4
