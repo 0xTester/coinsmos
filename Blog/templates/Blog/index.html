@@ -30,7 +30,7 @@
               {% for post in post_list %}
                 {% if forloop.counter|divisibleby:"4" %}
                   <tr>
-                    <td><div class="w3-container w3-hover-shadow w3-margin-bottom w3-cell"><a href="/categorias/{{ post.categoria }}"><span class="w3-tag w3-hover-red">{{ post.categoria|title }}</span></a>
+                    <td><div class="w3-container w3-hover-shadow w3-margin-bottom"><a href="/categorias/{{ post.categoria }}"><span class="w3-tag w3-hover-red">{{ post.categoria|title }}</span></a>
                       <a href="categorias/{{ post.categoria }}/{{ post.slug }}/{{ post.pk }}" style="text-decoration:none"><img src= "{{ post.thumbnail.url }}" style="width:100%" class="w3-hover-opacity">
                         <div class="w3-container w3-white">
                           <p><b>{{ post.title }}</b></p>
@@ -39,7 +39,7 @@
                       </a>
                   </div></td>
                   {% else %}
-                    <td><div class="w3-container w3-hover-shadow w3-margin-bottom w3-cell"><a href="/categorias/{{ post.categoria }}"><span class="w3-tag w3-hover-red">{{ post.categoria|title }}</span></a>
+                    <td><div class="w3-container w3-hover-shadow w3-margin-bottom"><a href="/categorias/{{ post.categoria }}"><span class="w3-tag w3-hover-red">{{ post.categoria|title }}</span></a>
                       <a href="categorias/{{ post.categoria }}/{{ post.slug }}/{{ post.pk }}" style="text-decoration:none"><img src= "{{ post.thumbnail.url }}" style="width:100%" class="w3-hover-opacity">
                         <div class="w3-container w3-white">
                           <p><b>{{ post.title }}</b></p>
