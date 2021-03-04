@@ -1,12 +1,12 @@
 from time import sleep
-from celery import shared_task
+from celery import task
 from celery import Celery
 from .models import Crypto
 import requests
 import certifi
 import re
 
-@shared_task
+@task()
 def crawl_currency():
     url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false&price_change_percentage='24h'"
 
@@ -26,7 +26,7 @@ def crawl_currency():
 
         sleep(3)
 
-@shared_task
+@task()
 def update_currency():
     url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false&price_change_percentage='24h'"
     response = requests.get(url,verify=certifi.where())
