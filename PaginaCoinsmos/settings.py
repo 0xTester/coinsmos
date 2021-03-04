@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'Blog.apps.BlogConfig',
+    'price_section.apps.PriceSectionConfig',
     'ckeditor',
     'ckeditor_uploader',
     'storages',
@@ -139,6 +141,12 @@ USE_TZ = True
 #AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 #AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
 
+
+# Celery
+CELERY_BROKER_URL= env('REDIS_URL')
+CELERY_RESULT_BACKEND=env('REDIS_URL')
+
+#---------------------------------------------
 CKEDITOR_UPLOAD_PATH = "uploads/"
 AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')

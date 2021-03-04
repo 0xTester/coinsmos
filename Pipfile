@@ -12,6 +12,8 @@ django-ckeditor = "*"
 django-environ = "*"
 gunicorn = "*"
 django-heroku = "*"
+redis = "*"
+celery = "*"
 
 [dev-packages]
 

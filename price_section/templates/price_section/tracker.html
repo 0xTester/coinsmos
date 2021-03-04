@@ -1,0 +1,30 @@
+{% extends "Blog/base.html" %}
+{% block content %}
+{% load humanize %}
+    <div class="w3-container">
+      <h2>Ultimos Precios y Valor en el Mercado de cryptomonedas</h2>
+      <p>Actualizaciones en vivo</p>
+      <table class="w3-table-all w3-card-4">
+        <tr>
+          <th>Cryptocurrency</th>
+          <th>Precio (usd)</th>
+          <th>Marketcap (usd)</th>
+          <th>Volumen (usd)</th>
+          <th>Supply</th>
+          <th>24h Change</th>
+        </tr>
+        {% for crypto1 in object_list %}
+        <tr>
+
+          <td><img src="{{ crypto1.imagen }}" alt="Image" class="w3-left w3-margin-right" style="width:50px">{{crypto1.cryptocurrency}}</td>
+          <td>{{crypto1.precio|intcomma}}$</td>
+          <td>{{crypto1.marketcap|intword}}</td>
+          <td>{{crypto1.volumen|intcomma}}</td>
+          <td>{{crypto1.supply|intcomma}}</td>
+          <td>{{crypto1.change}}%</td>
+        </tr>
+        {% endfor %}
+
+      </table>
+    </div>
+{% endblock content %}
