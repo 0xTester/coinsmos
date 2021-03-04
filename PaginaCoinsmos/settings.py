@@ -143,8 +143,8 @@ USE_TZ = True
 
 
 # Celery
-CELERY_BROKER_URL= env('REDIS_URL')
-CELERY_RESULT_BACKEND=env('REDIS_URL')
+app.conf.update(BROKER_URL=os.environ['REDIS_URL'],
+                CELERY_RESULT_BACKEND=os.environ['REDIS_URL'])
 
 #---------------------------------------------
 CKEDITOR_UPLOAD_PATH = "uploads/"
