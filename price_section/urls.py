@@ -7,3 +7,4 @@ urlpatterns = [
 
 
 ]
+# celery: celery -A PaginaCoinsmos worker --loglevel=INFO
