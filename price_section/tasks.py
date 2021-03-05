@@ -63,5 +63,5 @@ if not Crypto.objects.all():
     crawl_currency()
 
 while True:
-    sleep(3600)
+    sleep(15)
     update_currency()
