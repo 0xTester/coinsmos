@@ -57,18 +57,9 @@ def update_currency():
             crypto.change = match2[0]
         crypto.imagen = crypto_content["image"]
         crypto.save(update_fields=['cryptocurrency','precio','marketcap','volumen','supply', 'change', 'imagen'])
-        i -= 1
+        break
 
 if not Crypto.objects.all():
-    Crypto.objects.create(
-    cryptocurrency = 'felix',
-    precio = '785',
-    marketcap = 'adsfad',
-    volumen = 'asdfasdfa',
-    supply = 'asdfasdfadsf',
-    change = 'adsfasdfadsfad',
-    imagen = 'asdfasdfadsf'
-    )
     crawl_currency()
 
 while True:
