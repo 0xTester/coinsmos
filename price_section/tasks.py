@@ -39,28 +39,22 @@ def update_currency():
     transaction_content=json.loads(response.data.decode('utf-8'))
     pattern = re.compile(r'.*(?=\.)')
     pattern2 = re.compile(r'(.*)\.\d\d')
-    i = 0
+    id1 = 56
     for crypto_content in transaction_content:
-        crypto = Crypto.objects.all()[i]
-        crypto.cryptocurrency = crypto_content["name"]
-        crypto.precio = crypto_content["current_price"]
-        crypto.marketcap = crypto_content["market_cap"]
-        crypto.volumen = crypto_content["total_volume"]
         supply = crypto_content["circulating_supply"]
         change = crypto_content["price_change_percentage_24h"]
         match = pattern.match(str(supply))
         match2 = pattern2.match(str(change))
-        if match:
-            crypto.supply = match[0]
-            crypto.change = match2[0]
-        crypto.imagen = crypto_content["image"]
-        crypto.save(update_fields=['cryptocurrency','precio','marketcap','volumen','supply', 'change', 'imagen'])
-        i += 1
-        sleep(12)
+        data = {'cryptocurrency': crypto_content["name"], 'precio': crypto_content["current_price"],
+                'marketcap': crypto_content["market_cap"], 'volumen': crypto_content["total_volume"],
+                'supply': match[0], 'change': match2[0], 'imagen':crypto_content["image"]}
+        Crypto.objects.filter(id=id1).update(**data)
+        id1 += 1
+
 
 if not Crypto.objects.all():
     crawl_currency()
 
-#while True:
-#    sleep(60)
-#    update_currency()
+while True:
+    sleep(60)
+    update_currency()
