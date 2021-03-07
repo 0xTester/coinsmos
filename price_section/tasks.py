@@ -34,16 +34,14 @@ def crawl_currency():
 @shared_task
 def update_currency():
     url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false&price_change_percentage='24h'"
-    #response = requests.get(url,verify=certifi.where())
-    #transaction_content = response.json()
     http = urllib3.PoolManager()
     response = http.request('GET', url)
     transaction_content=json.loads(response.data.decode('utf-8'))
-    i = 20
     pattern = re.compile(r'.*(?=\.)')
     pattern2 = re.compile(r'(.*)\.\d\d')
+    i = 0
     for crypto_content in transaction_content:
-        crypto = Crypto.objects.all()[1]
+        crypto = Crypto.objects.all()[i]
         crypto.cryptocurrency = crypto_content["name"]
         crypto.precio = crypto_content["current_price"]
         crypto.marketcap = crypto_content["market_cap"]
@@ -57,7 +55,8 @@ def update_currency():
             crypto.change = match2[0]
         crypto.imagen = crypto_content["image"]
         crypto.save(update_fields=['cryptocurrency','precio','marketcap','volumen','supply', 'change', 'imagen'])
-        break
+        i += 1
+        sleep(3)
 
 if not Crypto.objects.all():
     crawl_currency()
