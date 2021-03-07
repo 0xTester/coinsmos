@@ -39,7 +39,7 @@ def update_currency():
     http = urllib3.PoolManager()
     response = http.request('GET', url)
     transaction_content=json.loads(response.data.decode('utf-8'))
-    i = 0
+    i = 20
     pattern = re.compile(r'.*(?=\.)')
     pattern2 = re.compile(r'(.*)\.\d\d')
     for crypto_content in transaction_content:
@@ -57,7 +57,7 @@ def update_currency():
             crypto.change = match2[0]
         crypto.imagen = crypto_content["image"]
         crypto.save(update_fields=['cryptocurrency','precio','marketcap','volumen','supply', 'change', 'imagen'])
-        i += 1
+        i -= 1
 
 if not Crypto.objects.all():
     Crypto.objects.create(
