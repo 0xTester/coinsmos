@@ -56,7 +56,7 @@ def update_currency():
         crypto.imagen = crypto_content["image"]
         crypto.save(update_fields=['cryptocurrency','precio','marketcap','volumen','supply', 'change', 'imagen'])
         i += 1
-        sleep(3)
+        sleep(12)
 
 if not Crypto.objects.all():
     crawl_currency()
