@@ -60,8 +60,17 @@ def update_currency():
         i += 1
 
 if not Crypto.objects.all():
+    Crypto.objects.create(
+    cryptocurrency = 'felix',
+    precio = '785',
+    marketcap = 'adsfad',
+    volumen = 'asdfasdfa',
+    supply = 'asdfasdfadsf',
+    change = 'adsfasdfadsfad',
+    imagen = 'asdfasdfadsf'
+    )
     crawl_currency()
 
 while True:
-    sleep(15)
+    sleep(60)
     update_currency()
