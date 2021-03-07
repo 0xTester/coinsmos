@@ -43,7 +43,7 @@ def update_currency():
     pattern = re.compile(r'.*(?=\.)')
     pattern2 = re.compile(r'(.*)\.\d\d')
     for crypto_content in transaction_content:
-        crypto = Crypto.objects.all()[0]
+        crypto = Crypto.objects.all()[1]
         crypto.cryptocurrency = crypto_content["name"]
         crypto.precio = crypto_content["current_price"]
         crypto.marketcap = crypto_content["market_cap"]
