@@ -4,7 +4,7 @@ class Crypto(models.Model):
 
     cryptocurrency = models.CharField(max_length=200)
     precio = models.CharField(max_length=200)
-    marketcap = models.CharField(max_length=200)
+    marketcap = models.FloatField()
     volumen = models.CharField(max_length=200)
     supply = models.CharField(max_length=200)
     change = models.CharField(max_length=200)

@@ -46,7 +46,7 @@ def update_currency():
         match = pattern.match(str(supply))
         match2 = pattern2.match(str(change))
         data = {'cryptocurrency': crypto_content["name"], 'precio': crypto_content["current_price"],
-                'marketcap': crypto_content["market_cap"], 'volumen': crypto_content["total_volume"],
+                'marketcap': float(crypto_content["market_cap"]), 'volumen': crypto_content["total_volume"],
                 'supply': match[0], 'change': match2[0], 'imagen': crypto_content["image"] }
 
         Crypto.objects.filter(id=id1).update(**data)
