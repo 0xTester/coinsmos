@@ -39,7 +39,7 @@ def update_currency():
     transaction_content=json.loads(response.data.decode('utf-8'))
     pattern = re.compile(r'.*(?=\.)')
     pattern2 = re.compile(r'(.*)\.\d\d')
-    id1 = 76
+    id1 = 96
     for crypto_content in transaction_content:
         supply = crypto_content["circulating_supply"]
         change = crypto_content["price_change_percentage_24h"]
