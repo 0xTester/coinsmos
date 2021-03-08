@@ -9,9 +9,9 @@ class Crypto(models.Model):
     supply = models.CharField(max_length=200)
     change = models.CharField(max_length=200)
     imagen = models.CharField(max_length=600, default='https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579')
-    created_at = models.DateTimeField(auto_now_add=True)
+
 
     class Meta:
-        ordering = ['-created_at']
+        ordering = ['-marketcap']
     def __str__(self):
         return self.cryptocurrency
