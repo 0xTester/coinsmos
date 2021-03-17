@@ -26,29 +26,14 @@
       <!-- Entrada de blog -->
       <div class="w3-row-padding">
         {% for post in ultimas_publicaciones %}
-          {% if forloop.counter|divisibleby:"3" %}
-          <div class="w3-row-padding">
-          <div><div class="w3-container w3-hover-shadow w3-margin-bottom w3-third">
-            <a href="categorias/{{ post.categoria }}/{{ post.slug }}/{{ post.pk }}" style="text-decoration:none">
-              <img src= "{{ post.thumbnail.url }}" style="width:100%" class="w3-hover-opacity"><a href="/categorias/{{ post.categoria }}"><span class="w3-tag w3-hover-red w3-display-topleft">{{ post.categoria|title }}</span></a>
-              <div class="w3-container w3-white">
-                <p><b>{{ post.title }}</b></p>
-                <p>{{ post.content|truncatewords_html:30|safe }}</p>
-              </div>
-            </a>
-        </div></div>
-        </div>
-          {% else %}
-          <div class="w3-container w3-hover-shadow w3-margin-bottom w3-third"><a href="/categorias/{{ post.categoria }}"><span class="w3-tag w3-hover-red">{{ post.categoria|title }}</span></a>
+          <div class="w3-third w3-container w3-hover-shadow w3-margin-bottom"><a href="/categorias/{{ post.categoria }}"><span class="w3-tag w3-hover-red">{{ post.categoria }}</span></a>
             <a href="categorias/{{ post.categoria }}/{{ post.slug }}/{{ post.pk }}" style="text-decoration:none"><img src= "{{ post.thumbnail.url }}" style="width:100%" class="w3-hover-opacity">
               <div class="w3-container w3-white">
                 <p><b>{{ post.title }}</b></p>
-                <p>{{ post.content|truncatewords_html:30|safe }}</p>
+                <p>{{ post.content|slice:":180"|safe }}...</p>
               </div>
             </a>
         </div>
-        </div>
-        {% endif %}
         {% endfor %}
       </div>
       {% if ultimas_publicaciones.has_other_pages %}
@@ -81,7 +66,7 @@
       <!-- Posts -->
       <div class="w3-white w3-margin">
         <div class="w3-container w3-padding w3-black">
-          <h4>Más populares</h4>
+          <h4>Últimas Publicaciones</h4>
         </div>
         {% for post in ultimas %}
         <ul class="w3-ul w3-hoverable w3-white">
@@ -114,7 +99,7 @@
         </div>
         <div class="w3-row-padding w3-white">
           <div class="w3-col s6">
-            <p><a href="https://www.bitfinex.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none"><img src="https://www.bitfinex.com/images/thumbnails/bitfinex-2.png" alt="Ex1" style="width:50px"><b>  BitFinex</b></p></a>
+            <p><a href="https://www.bitfinex.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none"><img src="https://pbs.twimg.com/profile_images/1243136786848768001/3NPReTdI_400x400.jpg" alt="Ex1" style="width:50px"><b>  BitFinex</b></p></a>
             <p><a href="https://www.kraken.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none"><img src="https://pbs.twimg.com/profile_images/1306325743580848130/mk0qvsZ9_400x400.jpg" alt="Ex2" style="width:50px"><b>  Kraken</b></p></a>
           </div>
           <div class="w3-col s6">
