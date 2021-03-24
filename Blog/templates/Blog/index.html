@@ -34,8 +34,12 @@
             </div>
           </a>
       </div>
+          {% if forloop.counter|divisibleby:3 %}
+            </div>
+            <div class="w3-row-padding">
+          {% endif %}
         {% endfor %}
-      </div>
+            </div>
       {% if ultimas_publicaciones.has_other_pages %}
         <div class="w3-bar w3-border w3-round w3-centered" style="width:100%">
           {% if ultimas_publicaciones.has_previous %}
