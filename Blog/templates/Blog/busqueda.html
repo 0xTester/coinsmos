@@ -27,16 +27,20 @@
       <!-- Entrada de blog -->
       <div class="w3-row-padding">
         {% for post in object_list %}
-          <div id="post_card" class="w3-third w3-container w3-hover-shadow w3-margin-bottom"><a href="/categorias/{{ post.categoria|title }}"><span class="w3-tag w3-hover-red">{{ post.categoria|title }}</span></a>
-            <a href="/categorias/{{ post.categoria }}/{{ post.slug }}/{{ post.pk }}" style="text-decoration:none"><img src= "{{ post.thumbnail.url }}" style="width:100%" class="w3-hover-opacity">
-              <div class="w3-container w3-white">
-                <p><b>{{ post.title }}</b></p>
-                <p>{{ post.content|truncatewords_html:25|safe }}</p>
-              </div>
-            </a>
-        </div>
-        {% endfor %}
+        <div id="post_card" class="w3-third w3-container w3-hover-shadow w3-margin-bottom"><a href="/categorias/{{ post.categoria|title }}"><span class="w3-tag w3-hover-red">{{ post.categoria|title }}</span></a>
+          <a href="/categorias/{{ post.categoria }}/{{ post.slug }}/{{ post.pk }}" style="text-decoration:none"><img src= "{{ post.thumbnail.url }}" style="width:100%" class="w3-hover-opacity">
+            <div class="w3-container w3-white">
+              <p><b>{{ post.title }}</b></p>
+              <p>{{ post.content|truncatewords_html:25|safe }}</p>
+            </div>
+          </a>
       </div>
+          {% if forloop.counter|divisibleby:3 %}
+            </div>
+            <div class="w3-row-padding">
+          {% endif %}
+        {% endfor %}
+            </div>
       {% if object_list.has_other_pages %}
         <div class="w3-bar w3-border w3-round w3-centered" style="width:100%">
           {% if object_list.has_previous %}
