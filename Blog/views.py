@@ -12,7 +12,7 @@ from django.urls import reverse
 class AuthorListView(ListView):
     model = Post
     template_name = 'Blog/user_posts.html'
-    paginate_by = 6
+    paginate_by = 9
 
     def get_queryset(self):
         user = get_object_or_404(User, username=self.kwargs.get('username'))
@@ -29,7 +29,7 @@ class PostListDest(ListView):
 
     model = Post
     template_name = 'Blog/index.html'
-    paginate_by = 6
+    paginate_by = 9
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
         ultimas = Post.objects.filter(status=1).order_by('-created_on')
@@ -70,7 +70,7 @@ def CategoryView(request, ctgs):
     ctgs = ctgs.lower()
     post_ctgs = Post.objects.filter(categoria = ctgs)
     ultimas = Post.objects.filter(status=1).order_by('-created_on')[0:4]
-    paginator = Paginator(post_ctgs, 6)
+    paginator = Paginator(post_ctgs, 9)
     page = request.GET.get('page')
     try:
         post_ctgs = paginator.page(page)
@@ -88,7 +88,7 @@ def busqueda(request):
     queryset_list = Post.objects.filter(status = 1).order_by('-created_on')
     if query:
         queryset_list = queryset_list.filter(Q(title__icontains=query) | Q(content__icontains=query)).distinct()
-    paginator = Paginator(queryset_list, 6)
+    paginator = Paginator(queryset_list, 9)
     page = request.GET.get('page')
     try:
         queryset = paginator.page(page)
