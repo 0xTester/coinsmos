@@ -37,14 +37,16 @@
         <div class="w3-container w3-padding w3-black">
           <h4>Últimas publicaciones</h4>
         </div>
+        {% for post in ultimas %}
         <ul class="w3-ul w3-hoverable w3-white">
           <li class="w3-padding-16">
-            <img src="" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-            <span class="w3-large">{{ post.title }}</span>
-            <br>
-            <span>{{ post.categoria }}</span>
+                <a href="/categorias/{{ post.categoria }}/{{ post.slug }}/{{ post.pk }}" style="text-decoration:none"><img src="{{ post.thumbnail.url }}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                <span class="w3-large"><b>{{ post.title }}</b></span>
+                <br>
+                <span>{{ post.created_on }}</span>
           </li>
         </ul>
+        {% endfor %}
       </div>
       <hr>
       <!-- Advertising -->
