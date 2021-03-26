@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG_VALUE') == 'False'
+DEBUG = env('DEBUG_VALUE') == False
 
 ALLOWED_HOSTS = ['coinsmosoficial.herokuapp.com']
 
