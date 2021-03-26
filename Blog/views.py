@@ -33,6 +33,7 @@ class PostListDest(ListView):
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
         ultimas = Post.objects.filter(status=1).order_by('-created_on')
+        ultimas2 = Post.objects.filter(status=1).order_by('-created_on')[0:4]
         paginator = Paginator(ultimas, self.paginate_by)
         page = self.request.GET.get('page')
         context_data['destacados'] = Post.objects.filter(status=1, destacado=1).order_by('-created_on')
@@ -43,6 +44,7 @@ class PostListDest(ListView):
         except EmptyPage:
             ultimas = paginator.page(paginator.num_pages)
         context_data['ultimas_publicaciones'] = ultimas
+        context_data['ultimas2'] = ultimas2
         return context_data
 
 class PostDetail(DetailView):
@@ -65,6 +67,12 @@ class agregar_comentario(CreateView):
     def form_valid(self, form):
         form.instance.post_id = self.kwargs['pk']
         return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        ultimas = Post.objects.filter(status=1).order_by('-created_on')[0:4]
+        context_data['ultimas'] = ultimas
+        return context_data
 
 def CategoryView(request, ctgs):
     ctgs = ctgs.lower()
