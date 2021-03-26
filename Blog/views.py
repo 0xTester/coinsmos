@@ -86,6 +86,7 @@ def contacto(request):
 def busqueda(request):
     query = request.GET.get('q', '')
     queryset_list = Post.objects.filter(status = 1).order_by('-created_on')
+    ultimas = Post.objects.filter(status=1).order_by('-created_on')[0:4]
     if query:
         queryset_list = queryset_list.filter(Q(title__icontains=query) | Q(content__icontains=query)).distinct()
     paginator = Paginator(queryset_list, 9)
@@ -98,6 +99,7 @@ def busqueda(request):
         queryset = paginator.page(paginator.num_pages)
     context = {
         'object_list' : queryset,
+        'ultimas': ultimas,
         'title' : 'List',
         'page' : page,
     }
