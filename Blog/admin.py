@@ -16,12 +16,12 @@ class PostAdmin(admin.ModelAdmin):
         #qs = super(PostAdmin, self).get_queryset(request)
         #return qs.filter(author=request.user)
     def formfield_for_choice_field(self, db_field, request, **kwargs):
-        if db_field.name == "author":
+        if db_field.name == "Author":
             kwargs['choices'] = (
                 ('accepted', 'Accepted'),
                 ('denied', 'Denied'),
             )
-            
+
         return super().formfield_for_choice_field(db_field, request, **kwargs)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comentario)
