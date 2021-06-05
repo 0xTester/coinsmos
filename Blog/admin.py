@@ -6,7 +6,7 @@ from django.db import models
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
 
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(admin.ModelAdmin, LoginRequiredMixin):
     list_display = ('title', 'slug', 'status','author', 'created_on')
     list_filter = ("status",)
     search_fields = ['title', 'contenido']
