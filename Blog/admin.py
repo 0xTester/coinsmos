@@ -11,13 +11,10 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ("status",)
     search_fields = ['title', 'contenido']
     prepopulated_fields = {'slug': ('title',)}
-
+    obj.author = request.user
     #def get_queryset(self, request):
         #qs = super(PostAdmin, self).get_queryset(request)
         #return qs.filter(author=request.user)
-    def formfield_for_foreignkey(self, db_field, request, **kwargs):
-        if db_field.name == "Author":
-            kwargs["queryset"] = author.objects.filter(author=request.user)
-        return super().formfield_for_foreignkey(db_field, request, **kwargs)
+    
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comentario)
