@@ -11,9 +11,9 @@ class PostAdmin(admin.ModelAdmin):
     search_fields = ['title', 'contenido']
     prepopulated_fields = {'slug': ('title',)}
 
-    def get_queryset(self, request):
-        qs = super(PostAdmin, self).get_queryset(request)
-        return qs.filter(author=request.user)
+    #def get_queryset(self, request):
+        #qs = super(PostAdmin, self).get_queryset(request)
+        #return qs.filter(author=request.user)
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comentario)
