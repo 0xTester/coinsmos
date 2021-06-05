@@ -17,7 +17,7 @@ class PostAdmin(admin.ModelAdmin):
         #return qs.filter(author=request.user)
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == "Author":
-            kwargs["queryset"] = author.objects.filter(owner=request.user)
+            kwargs["queryset"] = author.objects.filter(author=request.user)
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comentario)
