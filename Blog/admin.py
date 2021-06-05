@@ -11,7 +11,7 @@ class PostAdmin(admin.ModelAdmin, LoginRequiredMixin):
     list_filter = ("status",)
     search_fields = ['title', 'contenido']
     prepopulated_fields = {'slug': ('title',)}
-    actions = ['dispatch']
+    actions = [dispatch]
     #def get_queryset(self, request):
         #qs = super(PostAdmin, self).get_queryset(request)
         #return qs.filter(author=request.user)
