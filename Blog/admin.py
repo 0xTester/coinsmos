@@ -13,7 +13,7 @@ class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == "author":
-            kwargs["queryset"] = Post.objects.filter(autor=request.user)
+            kwargs["queryset"] = self.objects.filter(autor=request.user)
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
     #def get_queryset(self, request):
         #qs = super(PostAdmin, self).get_queryset(request)
