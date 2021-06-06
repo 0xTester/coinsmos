@@ -11,17 +11,10 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ("status",)
     search_fields = ['title', 'contenido']
     prepopulated_fields = {'slug': ('title',)}
-    def formfield_for_choice_field(self, db_field, request, **kwargs):
-        if db_field.name == "author":
-            kwargs['choices'] = (
-                ('accepted', 'Accepted'),
-                ('denied', 'Denied'),
-            )
 
-        return super().formfield_for_choice_field(db_field, request, **kwargs)
-    #def get_queryset(self, request):
-        #qs = super(PostAdmin, self).get_queryset(request)
-        #return qs.filter(author=request.user)
+    def get_queryset(self, request):
+        qs = super(PostAdmin, self).get_queryset(request)
+        return qs.filter(author=request.user)
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comentario)
