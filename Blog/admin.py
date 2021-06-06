@@ -20,6 +20,16 @@ class PostAdmin(admin.ModelAdmin):
         if db_field.name == "author":
             kwargs["initial"] = request.user.id
             return db_field.formfield(**kwargs)
-        return super().formfield_for_foreignkey(db_field, request, **kwargs)
+        return super(PostAdmin, self).formfield_for_foreignkey(db_field, request, **kwargs)
+
+    def has_change_permission(self, request, obj=None):
+    has_class_permission = super(PostAdmin, self).has_change_permission(request, obj)
+
+    if not has_class_permission:
+        return False
+
+    if obj is not None and not request.user.is_superuser and request.user.id != obj.author.id:
+        return False
+        
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comentario)
