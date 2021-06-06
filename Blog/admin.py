@@ -12,9 +12,9 @@ class PostAdmin(admin.ModelAdmin):
     search_fields = ['title', 'contenido']
     prepopulated_fields = {'slug': ('title',)}
 
-    #def get_queryset(self, request):
-    #    qs = super(PostAdmin, self).get_queryset(request)
-    #    return qs.filter(author=request.user)
+    def get_queryset(self, request):
+        qs = super(PostAdmin, self).get_queryset(request)
+        return qs.filter(author=request.user)
 
     def save_model(self, request, obj, form, change):
         obj.author = request.user
