@@ -13,7 +13,7 @@ class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
     def get_queryset(self, request):
-        if request.user != 'ElijahBaley':
+        if request.user != 'ELIJAHBALEY':
             qs = super(PostAdmin, self).get_queryset(request)
             return qs.filter(author=request.user)
 
