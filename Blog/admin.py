@@ -12,15 +12,12 @@ class PostAdmin(admin.ModelAdmin):
     search_fields = ['title', 'contenido']
     prepopulated_fields = {'slug': ('title',)}
 
-    def get_queryset(self, request):
-        
-        if request.user == 'ElijahBaley':
-            qs = super(PostAdmin, self).get_queryset(request)
-            return qs
 
-        else:
-            qs = super(PostAdmin, self).get_queryset(request)
-            return qs.filter(author=request.user)
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        user = request.user
+        return qs if user.is_superuser else qs.filter(author=request.user)
+
 
     def save_model(self, request, obj, form, change):
         obj.author = request.user
