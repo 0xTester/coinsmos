@@ -147,54 +147,7 @@ CELERY_RESULT_BACKEND=os.environ['REDIS_URL']
 
 #---------------------------------------------
 CKEDITOR_UPLOAD_PATH = "uploads/"
-CKEDITOR_CONFIGS={
-  'default': {
-    'width': '100%',
-    'height': 600,
-    'toolbar': 'Custom',
-    'extraPlugins': ','.join([
-      'justify',
-    ]),
-    'toolbar_Custom': [
-      [
-        'Bold',
-        'Italic',
-        'Underline'
-      ],
-      [
-        'Font',
-        'FontSize',
-        'TextColor',
-        'BGColor'
-      ],
-      [
-        'NumberedList',
-        'BulletedList',
-        '-',
-        'Outdent',
-        'Indent',
-        '-',
-        'JustifyLeft',
-        'JustifyCenter',
-        'JustifyRight',
-        'JustifyBlock'
-      ],
-      [
-        'Link',
-        'Unlink'
-      ],
-      [
-        'RemoveFormat',
-        'Source',
-        'CodeSnippet',
-        'Image',
-        'Youtube'
-      ]
-    ],
 
-  },
-
-}
 AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
