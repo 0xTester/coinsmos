@@ -32,7 +32,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG_VALUE') == False
 
-ALLOWED_HOSTS = ['coinsmos.com']
+ALLOWED_HOSTS = ['coinsmosoficial.herokuapp.com']
 
 
 # Application definition
@@ -176,7 +176,7 @@ DEFAULT_FILE_STORAGE = 'PaginaCoinsmos.storages.MediaStore'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-django_heroku.settings(locals(), staticfiles=False)
+django_heroku.settings(locals())
