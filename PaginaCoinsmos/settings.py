@@ -175,7 +175,6 @@ DEFAULT_FILE_STORAGE = 'PaginaCoinsmos.storages.MediaStore'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
-    os.path.join(BASE_DIR, 'staticfiles')
 ]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
