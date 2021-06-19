@@ -140,16 +140,6 @@ USE_TZ = True
 #AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 #AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 #AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': 'full',
-        'extraPlugins': ','.join(
-            [
-               'justify',
-            ]
-        ),
-    },
-}
 
 # Celery
 CELERY_BROKER_URL=os.environ['REDIS_URL']
@@ -181,6 +171,21 @@ MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_MEDIA_LOCATION}/'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 DEFAULT_FILE_STORAGE = 'PaginaCoinsmos.storages.MediaStore'
 
+CKEDITOR_CONFIGS = {
+'default': {
+'toolbar': 'Custom',
+'toolbar_Custom': [
+['Bold', 'Italic', 'Underline'],
+['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+['Link', 'Unlink'],
+['RemoveFormat', 'Source', 'CodeSnippet','pbckcode']
+],
+'height': 300,
+'extraPlugins': ['justify']
+},
+}
+if extra_plugins:
+    self.config['extraPlugins'] = ','.join(extra_plugins)
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
