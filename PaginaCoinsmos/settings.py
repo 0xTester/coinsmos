@@ -150,8 +150,8 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_CONFIGS = {
     'custom_ckeditor': {
         'toolbar': 'full',
-        'height': 300,
-        'width': 300,
+        'height': 1000,
+        'width': 1000,
     },
 }
 AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
