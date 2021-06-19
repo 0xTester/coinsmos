@@ -171,21 +171,7 @@ MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_MEDIA_LOCATION}/'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 DEFAULT_FILE_STORAGE = 'PaginaCoinsmos.storages.MediaStore'
 
-CKEDITOR_CONFIGS = {
-'default': {
-'toolbar': 'Custom',
-'toolbar_Custom': [
-['Bold', 'Italic', 'Underline'],
-['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
-['Link', 'Unlink'],
-['RemoveFormat', 'Source', 'CodeSnippet','pbckcode']
-],
-'height': 300,
-'extraPlugins': ['justify']
-},
-}
-if extra_plugins:
-    self.config['extraPlugins'] = ','.join(extra_plugins)
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
