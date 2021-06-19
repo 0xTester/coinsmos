@@ -32,7 +32,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG_VALUE') == False
 
-ALLOWED_HOSTS = ['coinsmosoficial.herokuapp.com']
+ALLOWED_HOSTS = ['coinsmos.com']
 
 
 # Application definition
