@@ -76,7 +76,7 @@ class agregar_comentario(CreateView):
 
 def CategoryView(request, ctgs):
     ctgs = ctgs.lower()
-    post_ctgs = Post.objects.filter(categoria = ctgs)
+    post_ctgs = Post.objects.filter(status=1,categoria = ctgs)
     ultimas = Post.objects.filter(status=1).order_by('-created_on')[0:4]
     paginator = Paginator(post_ctgs, 9)
     page = request.GET.get('page')
