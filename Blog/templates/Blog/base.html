@@ -2,17 +2,21 @@
 <html>
 {% load static %}
 <title>Coinsmos</title>
+
 <head>
   <link rel="icon" type="image/png" href="{% static "images/coinsmoslogo.png" %}">
   <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-STH8QNQW29"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-STH8QNQW29"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-gtag('config', 'G-STH8QNQW29');
-</script>
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-STH8QNQW29');
+  </script>
 </head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,120 +26,131 @@ gtag('config', 'G-STH8QNQW29');
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style>
-h1,h2,h3,h4,h5,h6 {font-family: "Oswald"}
-body {font-family: "Open Sans"}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Oswald"
+  }
+
+  body {
+    font-family: "Open Sans"
+  }
 </style>
+
 <body class="w3-light-grey">
 
-<!-- Navigation bar with social media icons -->
-<div class="w3-bar w3-black w3-hide-small">
-  <a href="https://www.facebook.com/CoinsmosOficial" class="w3-bar-item" target="_blank"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
-  <a href="https://twitter.com/Coinsmos1" class="w3-bar-item" target="_blank"><i class="fa fa-twitter w3-hover-opacity"></i></a>
-  <!--<a href="#" class="w3-bar-item"><i class="fa fa-instagram w3-hover-opacity"></i></a>-->
-  <!--<a href="#" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white">Nosotros</a>-->
-  <a href="{% url 'pagina_contacto' %}" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white">Anúnciate</a>
-  <!-- AVISO DE PRIVACIDAD <a href="#" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white">Aviso de privacidad</a>-->
-  <txt class="w3-bar-item w3-text-grey w3-hover-none w3-right">Todos los derechos reservados</txt>
-</div>
+  <!-- Navigation bar with social media icons -->
+  <div class="w3-bar w3-black w3-hide-small">
+    <a href="https://www.facebook.com/CoinsmosOficial" class="w3-bar-item" target="_blank"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+    <a href="https://twitter.com/Coinsmos1" class="w3-bar-item" target="_blank"><i class="fa fa-twitter w3-hover-opacity"></i></a>
+    <!--<a href="#" class="w3-bar-item"><i class="fa fa-instagram w3-hover-opacity"></i></a>-->
+    <!--<a href="#" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white">Nosotros</a>-->
+    <a href="{% url 'pagina_contacto' %}" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white">Anúnciate</a>
+    <!-- AVISO DE PRIVACIDAD <a href="#" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white">Aviso de privacidad</a>-->
+    <txt class="w3-bar-item w3-text-grey w3-hover-none w3-right">Todos los derechos reservados</txt>
+  </div>
 
-<!-- w3-content defines a container for fixed size centered content,
+  <!-- w3-content defines a container for fixed size centered content,
 and is wrapped around the whole page content, except for the footer in this example -->
-<div class="w3-content" style="max-width:1600px">
+  <div class="w3-content" style="max-width:1600px">
 
-  <!-- Header -->
-  <header class="w3-container w3-align-left w3-padding-32 w3-white w3-bar">
-    <a href="{% url 'blog-home' %}"><img src="{% static "images/coinsmoslogo.png" %}" alt="Logo" width ="90" height="90" style="float:left;"></a>
-    <h1 style="text-shadow:2px 2px 0 #C0C0C0" class="w3-xxxlarge"><b><a href="{% url 'blog-home' %}" style="text-decoration:none">COINSMOS</a></b></h1>
-    <h6 style="float:left; font-size:20px">Lo mejor de la  <span class="w3-tag">BLOCKCHAIN</span> EN ESPAÑOL</h6>
-    <div class="w3-white w3-round" style="float:right;">
-      <a href="#" onclick="document.getElementById('buscar').style.display='block'" class="w3-bar-item w3-button w3-right w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black w3-hide-small"><i class="fa fa-search"></i></a>
-      <a href="{% url 'blog-home' %}" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black w3-hide-small" style="font-size:20px"><i class="fa fa-home"></i></a>
-      <a href="{% url 'blog-home' %}categorias/Defi" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black w3-hide-small" style="font-size:20px"><b>DeFi</b></a>
-      <a href="{% url 'blog-home' %}categorias/Trading" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black w3-hide-small" style="font-size:20px"><b>Trading</b></a>
-      <a href="{% url 'blog-home' %}categorias/Noticias" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black w3-hide-small" style="font-size:20px"><b>Noticias</b></a>
-      <a href="{% url 'blog-home' %}categorias/Blockchain" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black w3-hide-small" style="font-size:20px"><b>Blockchain</b></a>
-      <a href="{% url 'blog-home' %}categorias/Educacion" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black w3-hide-small" style="font-size:20px"><b>Educación</b></a>
-      <a href="{% url 'price-home' %}" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black w3-hide-small" style="font-size:20px"><b>Precios en Vivo</b></a>
-      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="dropdown()">&#9776;</a>
-    </div>
-    <div id="dropdown" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-      <a href="#" onclick="document.getElementById('buscar').style.display='block'" class="w3-bar-item w3-button w3-right w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black"><i class="fa fa-search"></i></a>
-      <a href="{% url 'blog-home' %}" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black" style="font-size:20px"><i class="fa fa-home"></i></a>
-      <a href="{% url 'blog-home' %}categorias/Defi" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black" style="font-size:20px"><b>DeFi</b></a>
-      <a href="{% url 'blog-home' %}categorias/Trading" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black" style="font-size:20px"><b>Trading</b></a>
-      <a href="{% url 'blog-home' %}categorias/Noticias" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black" style="font-size:20px"><b>Noticias</b></a>
-      <a href="{% url 'blog-home' %}categorias/Blockchain" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black" style="font-size:20px"><b>Blockchain</b></a>
-      <a href="{% url 'blog-home' %}categorias/Educacion" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black" style="font-size:20px"><b>Educación</b></a>
-      <a href="{% url 'price-home' %}" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black w3-hide-small" style="font-size:20px"><b>Precios en Vivo</b></a>
-    </div>
-  </header>
-        {% block content %}
-        <!-- Content Goes here -->
-        {% endblock content %}
-        <!-- Footer -->
-        <footer class="w3-container w3-black" style="padding:32px">
-          <a href="#" class="w3-button w3-dark-grey w3-padding-large w3-margin-bottom"><i class="fa fa-arrow-up w3-margin-right"></i>Ir arriba</a>
-        <div class="w3-container" >
-          <table class="w3-table">
-            <tr>
-              <th>Servicios</th>
-              <th>Atención</th>
-              <th><button type="button" onclick="document.getElementById('donar').style.display='block'" class="w3-button w3-border-white">Donaciones <i class="fa fa-heart" style="font-size:14px;color:red"></i></button></th>
-            </tr>
-            <!-- Donation Modal -->
-            <div id="donar" class="w3-modal w3-animate-opacity">
-              <div class="w3-modal-content" style="padding:32px">
-                <div class="w3-container w3-white">
-                  <i onclick="document.getElementById('donar').style.display='none'" class="fa fa-remove w3-transparent w3-button w3-xlarge w3-right"></i>
-                  <h2 class="w3-wide">¡Gracias por ayudarnos a seguir!</h2>
-                  <p>Al realizar tu donación mandanos un correo con la transacción a: <b>info@coinsmos.com</b> para recibir un <b>NFT exclusivo de Coinsmos!</b> este NFT lo podrás intercambiar en diversos mercados.</p>
-                  <div class="w3-container">
-                    <ul>
-                      <p><b>BTC:</b> bc1q4jnt777kuw233cja04t4vnt2yuz9sv0q4z0yyw4</p>
-                      <p><b>ETH:</b> 0x344DFb13e21d54960Fe2F9fB7EF2256558FEfEe3</p>
-                      <p><b>MATIC:</b> 0xa9f72b889e7d238a64b16dd2addd148c740ce292</p>
-                      <p><b>BSC:</b> 0x0b588F44fB6CB1496466F9a8550c9E9Ac98B7A5</p>
-                      <p><b>LTC:</b> ltc1qqwvzaan6uvy8teskvycrvg8knlc2yd936yw242</p>
-                      <p><b>DOT:</b> 15wJqZxDuqmZN2VRjqryuzUxxP2mHThu777LET12Fy2qsEc3</p>
-                    </ul>
-                  </div>
-                  <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('donar').style.display='none'">Cerrar</button>
+    <!-- Header -->
+    <header class="w3-container w3-align-left w3-padding-32 w3-white w3-bar">
+      <a href="{% url 'blog-home' %}"><img src="{% static "images/coinsmoslogo.png" %}" alt="Logo" width="90" height="90" style="float:left;"></a>
+      <h1 style="text-shadow:2px 2px 0 #C0C0C0" class="w3-xxxlarge"><b><a href="{% url 'blog-home' %}" style="text-decoration:none">COINSMOS</a></b></h1>
+      <h6 style="float:left; font-size:20px">Lo mejor de la <span class="w3-tag">BLOCKCHAIN</span> EN ESPAÑOL</h6>
+      <div class="w3-white w3-round" style="float:right;">
+        <a href="#" onclick="document.getElementById('buscar').style.display='block'" class="w3-bar-item w3-button w3-right w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black w3-hide-small"><i class="fa fa-search"></i></a>
+        <a href="{% url 'blog-home' %}" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black w3-hide-small" style="font-size:20px"><i class="fa fa-home"></i></a>
+        <a href="{% url 'blog-home' %}categorias/Defi" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black w3-hide-small" style="font-size:20px"><b>DeFi</b></a>
+        <a href="{% url 'blog-home' %}categorias/Trading" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black w3-hide-small" style="font-size:20px"><b>Trading</b></a>
+        <a href="{% url 'blog-home' %}categorias/Noticias" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black w3-hide-small" style="font-size:20px"><b>Noticias</b></a>
+        <a href="{% url 'blog-home' %}categorias/Blockchain" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black w3-hide-small" style="font-size:20px"><b>Blockchain</b></a>
+        <a href="{% url 'blog-home' %}categorias/Educacion" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black w3-hide-small" style="font-size:20px"><b>Educación</b></a>
+        <a href="{% url 'price-home' %}" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black w3-hide-small" style="font-size:20px"><b>Precios en Vivo</b></a>
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="dropdown()">&#9776;</a>
+      </div>
+      <div id="dropdown" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+        <a href="#" onclick="document.getElementById('buscar').style.display='block'" class="w3-bar-item w3-button w3-right w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black"><i class="fa fa-search"></i></a>
+        <a href="{% url 'blog-home' %}" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black" style="font-size:20px"><i class="fa fa-home"></i></a>
+        <a href="{% url 'blog-home' %}categorias/Defi" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black" style="font-size:20px"><b>DeFi</b></a>
+        <a href="{% url 'blog-home' %}categorias/Trading" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black" style="font-size:20px"><b>Trading</b></a>
+        <a href="{% url 'blog-home' %}categorias/Noticias" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black" style="font-size:20px"><b>Noticias</b></a>
+        <a href="{% url 'blog-home' %}categorias/Blockchain" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black" style="font-size:20px"><b>Blockchain</b></a>
+        <a href="{% url 'blog-home' %}categorias/Educacion" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black" style="font-size:20px"><b>Educación</b></a>
+        <a href="{% url 'price-home' %}" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-mobile w3-bottombar w3-hover-border-black w3-hide-small" style="font-size:20px"><b>Precios en Vivo</b></a>
+      </div>
+    </header>
+    {% block content %}
+    <!-- Content Goes here -->
+    {% endblock content %}
+    <!-- Footer -->
+    <footer class="w3-container w3-black" style="padding:32px">
+      <a href="#" class="w3-button w3-dark-grey w3-padding-large w3-margin-bottom"><i class="fa fa-arrow-up w3-margin-right"></i>Ir arriba</a>
+      <div class="w3-container">
+        <table class="w3-table">
+          <tr>
+            <th>Servicios</th>
+            <th>Atención</th>
+            <th><button type="button" onclick="document.getElementById('donar').style.display='block'" class="w3-button w3-border-white">Donaciones <i class="fa fa-heart" style="font-size:14px;color:red"></i></button></th>
+          </tr>
+          <!-- Donation Modal -->
+          <div id="donar" class="w3-modal w3-animate-opacity">
+            <div class="w3-modal-content" style="padding:32px">
+              <div class="w3-container w3-white">
+                <i onclick="document.getElementById('donar').style.display='none'" class="fa fa-remove w3-transparent w3-button w3-xlarge w3-right"></i>
+                <h2 class="w3-wide">¡Gracias por ayudarnos a seguir!</h2>
+                <p>Al realizar tu donación mandanos un correo con la transacción a: <b>info@coinsmos.com</b> para recibir un <b>NFT exclusivo de Coinsmos!</b> este NFT lo podrás intercambiar en diversos mercados.</p>
+                <div class="w3-container">
+                  <ul>
+                    <p><b>BTC:</b> bc1q4jnt777kuw233cja04t4vnt2yuz9sv0q4z0yyw4</p>
+                    <p><b>ETH:</b> 0x344DFb13e21d54960Fe2F9fB7EF2256558FEfEe3</p>
+                    <p><b>MATIC:</b> 0xa9f72b889e7d238a64b16dd2addd148c740ce292</p>
+                    <p><b>BSC:</b> 0x0b588F44fB6CB1496466F9a8550c9E9Ac98B7A5</p>
+                    <p><b>LTC:</b> ltc1qqwvzaan6uvy8teskvycrvg8knlc2yd936yw242</p>
+                    <p><b>DOT:</b> 15wJqZxDuqmZN2VRjqryuzUxxP2mHThu777LET12Fy2qsEc3</p>
+                  </ul>
                 </div>
+                <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('donar').style.display='none'">Cerrar</button>
               </div>
             </div>
-            <!-- Search Modal -->
-            <div id="buscar" class="w3-modal w3-animate-opacity">
-              <div class="w3-modal-content" style="padding:32px">
-                <div class="w3-container w3-white">
-                  <i onclick="document.getElementById('buscar').style.display='none'" class="fa fa-remove w3-transparent w3-button w3-xlarge w3-right"></i>
-                  <h1><i class="fa fa-search"></i> Buscar...</h1>
-                  <br/>
-                  <form class="" action="{% url 'busqueda' %}" method="GET">
-                    {% csrf_token %}
-                    <input class="w3-input w3-border" type="text" placeholder="Buscar en coinsmos..." name="q" id="buscador">
+          </div>
+          <!-- Search Modal -->
+          <div id="buscar" class="w3-modal w3-animate-opacity">
+            <div class="w3-modal-content" style="padding:32px">
+              <div class="w3-container w3-white">
+                <i onclick="document.getElementById('buscar').style.display='none'" class="fa fa-remove w3-transparent w3-button w3-xlarge w3-right"></i>
+                <h1><i class="fa fa-search"></i> Buscar...</h1>
+                <br />
+                <form class="" action="{% url 'busqueda' %}" method="GET">
+                  {% csrf_token %}
+                  <input class="w3-input w3-border" type="text" placeholder="Buscar en coinsmos..." name="q" id="buscador">
                   <button type="submit" class="w3-button w3-blue w3-margin-bottom w3-float-right" value="Search">Buscar</button>
-                  </form>
-                </div>
+                </form>
               </div>
             </div>
+          </div>
 
-            <tr>
-              <td><a href="/contacto" style="text-decoration:none">Anúnciate</a></td>
-              <td><a href="/contacto" style="text-decoration:none">Contacto</a></td>
-            </tr>
-            <tr>
-              <!--<td><a href="#" style="text-decoration:none">Prensa</a></td>
+          <tr>
+            <td><a href="/contacto" style="text-decoration:none">Anúnciate</a></td>
+            <td><a href="/contacto" style="text-decoration:none">Contacto</a></td>
+          </tr>
+          <tr>
+            <!--<td><a href="#" style="text-decoration:none">Prensa</a></td>
               <td><a href="#" style="text-decoration:none">Atención a clientes</a></td>
             </tr>
             <tr>
               <td><a href="#" style="text-decoration:none">API para Desarrolladores</a></td>
               <td><a href="#" style="text-decoration:none">Carreras</a></td>
             </tr> -->
-          </table>
-        </div>
-          <p class="w3-right">Coinsmos© 2021. Todos los derechos reservados</p>
-        </footer>
-      <script>
+        </table>
+      </div>
+      <p class="w3-right">Coinsmos© 2021. Todos los derechos reservados</p>
+    </footer>
+    <script>
       function dropdown() {
         var x = document.getElementById("dropdown");
         if (x.className.indexOf("w3-show") == -1) {
@@ -144,4 +159,4 @@ and is wrapped around the whole page content, except for the footer in this exam
           x.className = x.className.replace(" w3-show", "");
         }
       }
-      </script>
+    </script>

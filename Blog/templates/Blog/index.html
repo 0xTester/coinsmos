@@ -21,38 +21,40 @@
   <div class="w3-row w3-padding w3-border">
 
     <!-- Entradas -->
-    <div><h3 style="font-size:36px"><b>Últimas publicaciones</b></h3></div>
+    <div>
+      <h3 style="font-size:36px"><b>Últimas publicaciones</b></h3>
+    </div>
     <div class="w3-col l8 s12">
       <!-- Entrada de blog -->
       <div class="w3-row-padding">
         {% for post in ultimas_publicaciones %}
         <div id="post_card" class="w3-third w3-container w3-hover-shadow w3-margin-bottom"><a href="/categorias/{{ post.categoria|title }}"><span class="w3-tag w3-hover-red">{{ post.categoria|title }}</span></a>
-          <a href="/categorias/{{ post.categoria }}/{{ post.slug }}/{{ post.pk }}" style="text-decoration:none"><img src= "{{ post.thumbnail.url }}" style="width:100%" class="w3-hover-opacity">
+          <a href="/categorias/{{ post.categoria }}/{{ post.slug }}/{{ post.pk }}" style="text-decoration:none"><img src="{{ post.thumbnail.url }}" style="width:100%" class="w3-hover-opacity">
             <div class="w3-container w3-white">
               <p><b>{{ post.title }}</b></p>
               <p>{{ post.content|truncatewords_html:25|safe }}</p>
             </div>
           </a>
-      </div>
-          {% if forloop.counter|divisibleby:3 %}
-            </div>
-            <div class="w3-row-padding">
-          {% endif %}
-        {% endfor %}
-            </div>
-      {% if ultimas_publicaciones.has_other_pages %}
-        <div class="w3-bar w3-border w3-round w3-centered" style="width:100%">
-          {% if ultimas_publicaciones.has_previous %}
-            <a href="?page={{ ultimas_publicaciones.previous_page_number }}" class="w3-button">&#10094; <b>Anterior</b></a>
-          {% endif %}
-          {% if ultimas_publicaciones.has_next %}
-            <a href="?page={{ ultimas_publicaciones.next_page_number }}" class="w3-button w3-right"><b>Siguiente &#10095;</b></a>
-          {% endif %}
         </div>
+        {% if forloop.counter|divisibleby:3 %}
+      </div>
+      <div class="w3-row-padding">
+        {% endif %}
+        {% endfor %}
+      </div>
+      {% if ultimas_publicaciones.has_other_pages %}
+      <div class="w3-bar w3-border w3-round w3-centered" style="width:100%">
+        {% if ultimas_publicaciones.has_previous %}
+        <a href="?page={{ ultimas_publicaciones.previous_page_number }}" class="w3-button">&#10094; <b>Anterior</b></a>
+        {% endif %}
+        {% if ultimas_publicaciones.has_next %}
+        <a href="?page={{ ultimas_publicaciones.next_page_number }}" class="w3-button w3-right"><b>Siguiente &#10095;</b></a>
+        {% endif %}
+      </div>
       {% endif %}
 
       <!-- Entrada de blog -->
-    <!-- Enpaginación -->
+      <!-- Enpaginación -->
     </div>
 
 
@@ -75,10 +77,10 @@
         {% for post in ultimas2 %}
         <ul class="w3-ul w3-hoverable w3-white">
           <li class="w3-padding-16">
-                <a href="/categorias/{{ post.categoria|title }}/{{ post.slug }}/{{ post.pk }}" style="text-decoration:none"><img src="{{ post.thumbnail.url }}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                <span class="w3-large">{{ post.title }}</span>
-                <br>
-                <span>{{ post.created_on }}</span>
+            <a href="/categorias/{{ post.categoria|title }}/{{ post.slug }}/{{ post.pk }}" style="text-decoration:none"><img src="{{ post.thumbnail.url }}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+              <span class="w3-large">{{ post.title }}</span>
+              <br>
+              <span>{{ post.created_on }}</span>
           </li>
         </ul>
         {% endfor %}
@@ -86,16 +88,16 @@
       <hr>
       <!-- Advertising -->
       <a href="https://www.coinsmos.com/contacto" style="text-decoration:none">
-      <div class="w3-white w3-margin">
-        <div class="w3-container w3-padding w3-black">
-          <h4>Anúnciate con nosotros</h4>
-        </div>
-        <div class="w3-container w3-white w3-center">
-          <div class="w3-display-container w3-white w3-section">
-            <img src="https://coinsmos.s3.us-east-2.amazonaws.com/Anunciate_aqui1.png" alt="Anunciate" class="w3-image">
+        <div class="w3-white w3-margin">
+          <div class="w3-container w3-padding w3-black">
+            <h4>Anúnciate con nosotros</h4>
+          </div>
+          <div class="w3-container w3-white w3-center">
+            <div class="w3-display-container w3-white w3-section">
+              <img src="https://coinsmos.s3.us-east-2.amazonaws.com/Anunciate_aqui1.png" alt="Anunciate" class="w3-image">
+            </div>
           </div>
         </div>
-      </div>
       </a>
       <hr>
       <!-- Post Patrocinados -->
@@ -105,13 +107,15 @@
         </div>
         <div class="w3-row-padding w3-white">
           <div class="w3-col s6">
-            <p><a href="https://www.bitfinex.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none"><img src="https://bitfinex.com/images/thumbnails/bitfinex-2.png" alt="Ex1" style="width:50px"><b>  BitFinex</b></p></a>
-            <p><a href="https://www.kraken.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none"><img src="https://pbs.twimg.com/profile_images/1306325743580848130/mk0qvsZ9_400x400.jpg" alt="Ex2" style="width:50px"><b>  Kraken</b></p></a>
+            <p><a href="https://www.bitfinex.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none"><img src="https://bitfinex.com/images/thumbnails/bitfinex-2.png" alt="Ex1" style="width:50px"><b> BitFinex</b></p></a>
+            <p><a href="https://www.kraken.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none"><img src="https://pbs.twimg.com/profile_images/1306325743580848130/mk0qvsZ9_400x400.jpg" alt="Ex2" style="width:50px"><b>
+                  Kraken</b></p></a>
           </div>
           <div class="w3-col s6">
-            <p><a href="https://www.binance.com/es" target="_blank" rel="noopener noreferrer" style="text-decoration:none"><img src="https://public.bnbstatic.com/image/cms/blog/20200707/631c823b-886e-4e46-b12f-29e5fdc0882e.png" alt="Ex3" style="width:50px"><b>  BINANCE</b></p></a>
-            <p><a href="https://ftx.com/es" target="_blank" rel="noopener noreferrer" style="text-decoration:none"><img src="https://cryptologos.cc/logos/ftx-token-ftt-logo.png" alt="Ex4" style="width:50px"><b>  FTX</b></p></a>
-         </div>
+            <p><a href="https://www.binance.com/es" target="_blank" rel="noopener noreferrer" style="text-decoration:none"><img src="https://public.bnbstatic.com/image/cms/blog/20200707/631c823b-886e-4e46-b12f-29e5fdc0882e.png" alt="Ex3"
+                  style="width:50px"><b> BINANCE</b></p></a>
+            <p><a href="https://ftx.com/es" target="_blank" rel="noopener noreferrer" style="text-decoration:none"><img src="https://cryptologos.cc/logos/ftx-token-ftt-logo.png" alt="Ex4" style="width:50px"><b> FTX</b></p></a>
+          </div>
         </div>
       </div>
       <hr>
@@ -139,18 +143,19 @@
           <h4>Donaciones</h4>
         </div>
         <div class="w3-container w3-white">
-          <p>Tus donaciones nos ayudan a seguir dando lo mejor, para traerte la mejor información y las mejores herramientas. <b>¡Todas las donaciones reciben un NFT de Coinsmos!</b> Aceptamos donaciones en: <b>BTC | ETH | MATIC | BSC | LTC | DOT</b></p>
+          <p>Tus donaciones nos ayudan a seguir dando lo mejor, para traerte la mejor información y las mejores herramientas. <b>¡Todas las donaciones reciben un NFT de Coinsmos!</b> Aceptamos donaciones en: <b>BTC | ETH | MATIC | BSC | LTC | DOT</b>
+          </p>
           <p><button type="button" onclick="document.getElementById('donar').style.display='block'" class="w3-button w3-block w3-red">DONAR</button></p>
         </div>
       </div>
 
-    <!-- END About/Intro Menu -->
+      <!-- END About/Intro Menu -->
     </div>
 
-  <!-- END GRID -->
+    <!-- END GRID -->
   </div>
 
-<!-- END w3-content -->
+  <!-- END w3-content -->
 </div>
 
 <!-- Donation Modal -->
@@ -177,47 +182,53 @@
 
 </div>
 <script>
-var slideIndex = 1;
-showDivs(slideIndex);
+  var slideIndex = 1;
+  showDivs(slideIndex);
 
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
-
-function currentDiv(n) {
-  showDivs(slideIndex = n);
-}
-
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
+  function plusDivs(n) {
+    showDivs(slideIndex += n);
   }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" w3-white", "");
-  }
-  x[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " w3-white";
-}
 
-var myIndex = 0;
-carousel();
-
-function carousel() {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
+  function currentDiv(n) {
+    showDivs(slideIndex = n);
   }
-  myIndex++;
-  if (myIndex > x.length) {myIndex = 1}
-  x[myIndex-1].style.display = "block";
-  setTimeout(carousel, 3300);
-}
+
+  function showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("demo");
+    if (n > x.length) {
+      slideIndex = 1
+    }
+    if (n < 1) {
+      slideIndex = x.length
+    }
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" w3-white", "");
+    }
+    x[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " w3-white";
+  }
+
+  var myIndex = 0;
+  carousel();
+
+  function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    myIndex++;
+    if (myIndex > x.length) {
+      myIndex = 1
+    }
+    x[myIndex - 1].style.display = "block";
+    setTimeout(carousel, 3300);
+  }
   // Toggle between hiding and showing blog replies/comments
 </script>
 {% endblock %}
